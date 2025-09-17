@@ -1,0 +1,19 @@
+/* Flexbox to align text and ASCII art */
+.about-content {
+    display: flex;
+    justify-content: space-between; /* Puts text on the left, ASCII on the right */
+    align-items: center;
+    max-width: 60rem;
+    margin: auto;
+    text-align: left;
+}
+
+/* Right side - ASCII Art */
+.ascii-art {
+    width: 35%;
+    white-space: pre-wrap; /* Keeps the ASCII formatting */
+    font-family: monospace;
+    font-size: 0.9rem; /* Adjust size as needed */
+    color: #4a5568; /* Matches text color */
+    text-align: right; /* Aligns it to the right */
+}
