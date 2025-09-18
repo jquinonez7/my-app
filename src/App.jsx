@@ -7,21 +7,20 @@ import Contact from "./Contact";
 function App() {
   return (
     <div className="App">
-      {/* Home Section */}
-      <Home />
+      {/* Home (put your navbar inside Home or above it) */}
+      <section id="home">
+        <Home />
+      </section>
 
-      {/* About Section */}
-      <section className="section">
+      <section id="about" className="section">
         <About />
       </section>
 
-      {/* You can add more sections later */}
-      {/* <Education /> */}
-      <section className="section">
+      <section id="education" className="section">
         <Education />
       </section>
-      {/* <Contact /> */}
-      <section className="section">
+
+      <section id="contact" className="section">
         <Contact />
       </section>
     </div>

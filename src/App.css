@@ -10,10 +10,14 @@
   text-align: center;
   transition: background 0.5s ease, color 0.5s ease;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* Utility container for consistent section spacing */
 .section {
-  padding: 6rem 2rem;
+  padding: 4rem 2rem;
   max-width: 1200px;
   margin: auto;
 }
@@ -41,4 +45,28 @@
   100% {
       transform: rotate(-3deg) scale(1); /* Moves the opposite way */
   }
+}
+:root {
+  /* set this to your actual navbar height */
+  --nav-h: 72px;
+}
+
+/* smooth anchor scrolling */
+html {
+  scroll-behavior: smooth;
+  /* reserve space equal to navbar for #hash jumps */
+  scroll-padding-top: var(--nav-h);
+}
+
+/* your navbar container */
+.navbar-container {
+  position: sticky;              /* or position: fixed */
+  top: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+}
+
+/* extra cushion so titles never get clipped */
+section[id] {
+  scroll-margin-top: calc(var(--nav-h) + 8px);
 }
