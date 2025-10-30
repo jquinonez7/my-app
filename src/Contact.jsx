@@ -9,8 +9,8 @@ export default function Contact() {
       </div>
 
       <div className="contact-header">
-        <h2>Contact sales</h2>
-        <p>Aute magna irure deserunt veniam aliqua magna enim voluptate.</p>
+        <h2>Contact Me</h2>
+        <p>Let's connect!</p>
       </div>
 
       <form action="#" method="POST" className="contact-form">
@@ -25,12 +25,6 @@ export default function Contact() {
           <div>
             <label htmlFor="last-name">Last name</label>
             <input id="last-name" name="last-name" type="text" autoComplete="family-name" />
-          </div>
-
-          {/* Company */}
-          <div className="span-2">
-            <label htmlFor="company">Company</label>
-            <input id="company" name="company" type="text" autoComplete="organization" />
           </div>
 
           {/* Email */}
