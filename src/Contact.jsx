@@ -52,20 +52,11 @@ export default function Contact() {
             <label htmlFor="message">Message</label>
             <textarea id="message" name="message" rows={4} />
           </div>
-
-          {/* Checkbox */}
-          <div className="span-2 checkbox-group">
-            <input id="agree-to-policies" type="checkbox" />
-            <label htmlFor="agree-to-policies">
-              By selecting this, you agree to our{" "}
-              <a href="#">privacy policy</a>.
-            </label>
           </div>
-        </div>
 
         {/* Submit */}
         <div className="submit">
-          <button type="submit">Let's talk</button>
+          <button type="submit">Let's talk!</button>
         </div>
       </form>
     </div>
