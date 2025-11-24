@@ -19,8 +19,8 @@
   width: 36rem;
   height: 24rem;
   transform: translateX(-50%) rotate(30deg);
-  background: linear-gradient(to top right, #ff80b5, #9089fc);
-  opacity: 0.2;
+  background: linear-gradient(to top right, #ff18b2, #9089fc);
+  opacity: 0.9;
 }
 
 .contact-header {
