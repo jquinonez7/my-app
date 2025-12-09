@@ -15,7 +15,7 @@ const About = () => {
             I use <span className="about-highlight">C++, Java, Python, React, JavaScript, HTML, CSS, and Tailwind CSS.</span>
           </p>
           <p className="about-text">
-            Beyond coding, I spend time in the realms of <span className="about-highlight">fitnes, cars, and traveling</span>.
+            Beyond coding, I spend time in the realms of <span className="about-highlight">fitness, cars, and traveling</span>.
           </p>
         </div>
 
