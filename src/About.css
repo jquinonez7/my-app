@@ -1,4 +1,9 @@
-/* Scope to the About section */
+/* Full pink background for About section */
+#about {
+    background: #ffe2f1;   /* soft pink */
+    padding: 4rem 0;       /* optional: makes spacing match education */
+  }
+  
 #about .about-content {
     display: flex;
     justify-content: space-between;
@@ -7,6 +12,7 @@
     max-width: 60rem;
     margin: 0 auto;
     text-align: left;
+    color: rgb(203, 13, 105);
   }
   
   /* Left text container can flex */
@@ -16,11 +22,11 @@
   
   /* Right side - ASCII Art */
   #about .ascii-art {
-    width: 35%;
+    width: 50%;
     white-space: pre-wrap;
     font-family: monospace;
-    font-size: 0.9rem;
-    color: #4a5568;
+    font-size: 1.2rem;
+    color: rgb(203, 13, 105);
     text-align: right;
   }
   

@@ -8,7 +8,7 @@
 #contact .contact-background {
   position: absolute;
   inset: 0;
-  top: -10rem;
+  top: 0;
   z-index: -10;
   overflow: hidden;
   filter: blur(64px);
