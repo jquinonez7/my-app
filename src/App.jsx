@@ -5,6 +5,9 @@ import Education from "./Education";
 import Contact from "./Contact";
 
 function App() {
+  useEffect(() => {
+    document.title = "Jade Quinonez";
+  }, []);
   return (
     <div className="App">
       {/* Home (put your navbar inside Home or above it) */}
