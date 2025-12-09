@@ -20,11 +20,11 @@ function App() {
         <Education />
       </section>
 
-      <section id="contact" className="section">
+      {/* <section id="contact" className="section">
         <Contact />
-      </section>
-    </div>
+      </section> */}
+    </div> 
   );
-}
+} 
 
 export default App;
