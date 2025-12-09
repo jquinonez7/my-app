@@ -4,6 +4,7 @@ import About from "./About";
 import Education from "./Education";
 import Contact from "./Contact";
 
+<title>Jade Quinonez</title>
 
 function App() {
   return (
