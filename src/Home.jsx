@@ -33,8 +33,8 @@ const Home = () => {
             <a href="#home" className="nav-item">Home</a>
             <a href="#about" className="nav-item">About</a>
             <a href="#education" className="nav-item">Education</a>
-            <a href="#work" className="nav-item">My Work</a>
-            <a href="#contact" className="nav-item">Contact</a>
+            {/* <a href="#work" className="nav-item">My Work</a>
+            <a href="#contact" className="nav-item">Contact</a> */}
           </div>
            {/* Dark Mode Toggle Button */}
            <button className="dark-mode-btn" onClick={toggleDarkMode}>
