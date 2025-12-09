@@ -1,12 +1,21 @@
-# React + Vite
+# Jade Quinonez — Portfolio Website  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my personal portfolio site: https://www.jadequinonez.com/  
 
-Currently, two official plugins are available:
+## 🚀 What This Is  
+This website showcases my projects, skills, and contact information in one place. It’s meant to serve as a living résumé: browse my work, and see what I’ve built.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔍 Why I Built It  
+- To provide a polished, centralized home for all my projects and code.  
+- To practice good web-development habits (design, responsiveness, deployment).  
 
-## Expanding the ESLint configuration
+## 🧰 Built With  
+- HTML / CSS / JavaScript  
+- React, Vite
+- Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📚 What’s Included  
+- An “About Me” section — background, interests, and what I’m studying.  
+- A “Projects” section — show a gallery or list of projects, with descriptions, links, and live demos (if deployed).  
+- A “Skills & Technologies” section — enumerate languages, frameworks, tools I’m confident with.  
+- Contact / social links — email, GitHub, LinkedIn, etc.  
