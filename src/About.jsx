@@ -8,9 +8,8 @@ const About = () => {
         <div className="about-text-container">
           <h2 className="about-title">About Me</h2>
           <p className="about-text">
-            Hey, I’m <span className="about-highlight">Jade Quinonez</span>—a 
-            <span className="about-highlight"> computer science studen at CSULB </span>
-            passionate about building sleek, functional websites and diving into the world of
+            Hi! I’m <span className="about-highlight">Jade Quinonez</span>. I am
+            <span className="about-highlight"> a student at CSULB studying Computer Science with a concentration in Software Development. </span>
             <span className="about-highlight"> software engineering.</span> 
             I use <span className="about-highlight">C++, Java, Python, React, JavaScript, HTML, CSS, and Tailwind CSS.</span>
           </p>
