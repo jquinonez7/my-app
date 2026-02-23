@@ -13,15 +13,23 @@ const About = () => {
             concentration in Software Development. I have experience working with
             Python, Java, HTML, CSS, JavaScript, and C++. I’ve used tools and
             frameworks such as React, Vue.js, Tailwind CSS, Git, GitHub, and Linux.
-            Beyond coding, I enjoy spending time with my dog, Butters — she’s a
-            4-year-old Aussie. I also love fashion, cars, and traveling.
+            Beyond coding, I enjoy spending time with my dog,{" "}
+            <span className="hover-item">
+              Butters
+              <img
+                src="/IMG_3701.HEIC"
+                alt="Jade and Butters"
+                className="hover-image"
+              />
+            </span>{" "}
+            — she’s a 4-year-old Aussie. I also love fashion, cars, and traveling.
           </p>
         </div>
 
         {/* Right Side - ASCII Art */}
         <div className="ascii-art">
           <pre>
-{`⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+            {`⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⢰⣿⡿⠗⠀⠠⠄⡀⠀⠀⠀⠀
 ⠀⠀⠀⠀⡜⢁⣀⡀⠀⠀⠀⠈⠑⢶⣶⡄
 ⢀⣶⣦⣸⠈⢿⣟⡇⠀⠀⣀⣀⠀⠘⡿⠃

@@ -48,4 +48,28 @@
       text-align: center;
     }
   }
+  /* Hover Image */
+  .hover-item {
+    position: relative;
+    cursor: pointer;
+    font-weight: 600;
+  }
   
+  .hover-image {
+    position: absolute;
+    top: -240px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10;
+  }
+  
+  .hover-item:hover .hover-image {
+    opacity: 1;
+    transform: translateX(-50%) scale(1.05);
+  }
