@@ -1,3 +1,5 @@
+// <a href="#work" className="button-primary">My Work</a> 
+// <a href="#contact" className="button-secondary">Contact Me →</a>
 import "./Home.css"; // Import CSS styles
 import { useState, useEffect } from "react";
 import { Moon, Sun } from "lucide-react"; // Import Moon & Sun Icons
@@ -50,8 +52,6 @@ const Home = () => {
           <h1 className="hero-title">Jade Quinonez</h1>
           <p className="hero-description">Computer Science Student</p>
           <div className="hero-buttons">
-            <a href="#work" className="button-primary">My Work</a>
-            <a href="#contact" className="button-secondary">Contact Me →</a>
           </div>
         </div>
       </section>

@@ -7,7 +7,7 @@ import Contact from "./Contact";
 function App() {
   return (
     <div className="App">
-      {/* Home (put your navbar inside Home or above it) */}
+      {/* Home */}
       <section id="home">
         <Home />
       </section>
