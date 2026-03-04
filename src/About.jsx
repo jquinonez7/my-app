@@ -37,7 +37,7 @@ const About = () => {
           {/* ASCII Art */}
           <div className="ascii-art">
             <pre>
-{`⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+              {`⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⢰⣿⡿⠗⠀⠠⠄⡀⠀⠀⠀⠀
 ⠀⠀⠀⠀⡜⢁⣀⡀⠀⠀⠀⠈⠑⢶⣶⡄
 ⢀⣶⣦⣸⠈⢿⣟⡇⠀⠀⣀⣀⠀⠘⡿⠃
@@ -61,22 +61,18 @@ const About = () => {
           layout="center"
           size="md"
           variant="soft"
+          className="butters-modal"
         >
           <ModalClose />
+
           <Typography level="h4">Jade & Butters</Typography>
+
           <img
-  src="/IMG_3701.jpg"
-  alt="Jade and Butters"
-  style={{
-    maxWidth: "350px",
-    width: "100%",
-    borderRadius: "12px",
-    marginTop: "12px",
-    display: "block",
-    marginLeft: "auto",
-    marginRight: "auto"
-  }}
+            src="/IMG_3701.jpg"
+            alt="Jade and Butters"
+            className="butters-image"
           />
+
         </ModalDialog>
       </Modal>
     </>

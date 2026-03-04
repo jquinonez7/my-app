@@ -52,4 +52,15 @@
     font-weight: bold;
     cursor: pointer;
     text-decoration: underline;
+    
+  }.butters-modal {
+    padding: 20px;
+  }
+  
+  .butters-image {
+    max-width: 350px;
+    width: 100%;
+    border-radius: 12px;
+    margin: 12px auto 0;
+    display: block;
   }
