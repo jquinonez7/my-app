@@ -57,7 +57,7 @@ const About = () => {
       {/* Modal */}
       <Modal open={open} onClose={() => setOpen(false)}>
         <ModalDialog
-          color="neutral"
+          color= "rgb(203, 13, 105)"
           layout="center"
           size="md"
           variant="soft"
