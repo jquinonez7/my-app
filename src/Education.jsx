@@ -8,8 +8,16 @@ import AccordionSummary from "@mui/joy/AccordionSummary";
 const Education = () => {
   return (
     <section id="education">
+      <h1 className="about-title">Education</h1>
 
-      <AccordionGroup size="lg" className="education-accordion">
+      <AccordionGroup
+        size="lg"
+        className="education-accordion"
+        transition={{
+          initial: "0.3s ease-out",
+          expanded: "0.2s ease",
+        }}
+      >
 
         <Accordion>
           <AccordionSummary>
@@ -42,7 +50,6 @@ const Education = () => {
             </ul>
           </AccordionDetails>
         </Accordion>
-
       </AccordionGroup>
 
     </section>

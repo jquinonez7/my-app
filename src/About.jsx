@@ -15,7 +15,7 @@ const About = () => {
 
           {/* Left Side */}
           <div className="about-text-container">
-            <h2 className="about-title">About Me</h2>
+            <h1 className="about-title">About Me</h1>
 
             <p className="about-text">
               Hi! I’m Jade Quinonez. I’m a Computer Science student at CSULB with a

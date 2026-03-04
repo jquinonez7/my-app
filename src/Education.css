@@ -11,9 +11,15 @@
   padding: 0 20px;
 }
 
-#education .MuiAccordionSummary-root {
+.education-summary {
+  color: rgb(181, 58, 117);
+}
+
+#education .MuiAccordionDetails-root {
   color: rgb(203, 13, 105);
 }
-#education .MuiAccordionDetails-root {
+
+.about-title
+{
   color: rgb(203, 13, 105);
 }
