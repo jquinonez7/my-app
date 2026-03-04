@@ -62,9 +62,27 @@ const About = () => {
           variant="soft"
           className="butters-modal"
         >
-          <ModalClose />
+          <ModalClose
+            sx={{
+              color: "rgb(203, 13, 105)",
+              backgroundColor: "transparent",
+              "&:hover": {
+                backgroundColor: "#ffe2f1",
+                color: "rgb(203, 13, 105)"
+              },
+              "&:active": {
+                backgroundColor: "#ffe2f1",
+                color: "rgb(203, 13, 105)"
+              }
+            }}
+          />
 
-          <Typography level="h4">Jade & Butters</Typography>
+<Typography
+  level="h4"
+  sx={{ color: "rgb(203, 13, 105)" }}
+>
+  Jade & Butters
+</Typography>
 
           <img
             src="/IMG_3701.jpg"

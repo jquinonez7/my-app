@@ -1,54 +1,50 @@
 import "./Education.css";
 
+import Accordion from "@mui/joy/Accordion";
+import AccordionDetails from "@mui/joy/AccordionDetails";
+import AccordionGroup from "@mui/joy/AccordionGroup";
+import AccordionSummary from "@mui/joy/AccordionSummary";
+
 const Education = () => {
   return (
     <section id="education">
-      <div className="education-container">
-        <div className="education-grid">
 
-          {/* LEFT SIDEBAR */}
-          <div className="education-sidebar">
-            <h3 className="education-title">Education</h3>
-            <p className="education-subtitle">Classes:</p>
-            <ul className="education-list">
-              <li>Algorithms</li>
-              <li>System Programming</li>
-              <li>Discrete Structures</li>
-              <li>Discrete Structures II</li>
-              <li>Digital Logic & Assembly</li>
-              <li>Data Structures</li>
-              <li>C++</li>
-              <li>C++ II</li>
-              <li>Java Programming</li>
+      <AccordionGroup size="lg" className="education-accordion">
+
+        <Accordion>
+          <AccordionSummary>
+            Orange Coast College
+          </AccordionSummary>
+
+          <AccordionDetails>
+            <p><strong>Associates of Science in Computer Science</strong></p>
+            <p>August 2022 – May 2025</p>
+
+            <ul>
+              <li>Focused coursework in programming, algorithms, and systems fundamentals.</li>
+              <li>Developed strong foundations in software engineering and problem solving.</li>
             </ul>
-          </div>
+          </AccordionDetails>
+        </Accordion>
 
-          {/* RIGHT SIDE — CARDS */}
-          <div className="education-content">
+        <Accordion>
+          <AccordionSummary>
+            California State University, Long Beach
+          </AccordionSummary>
 
-            <div className="education-card">
-              <h2 className="degree">Associates of Science in Computer Science</h2>
-              <p className="school">Orange Coast College</p>
-              <p className="date">August 2022 – May 2025</p>
-              <ul className="detail-list">
-                <li>Focused coursework in programming, algorithms, and systems fundamentals.</li>
-                <li>Developed foundational skills in software engineering and problem-solving.</li>
-              </ul>
-            </div>
+          <AccordionDetails>
+            <p><strong>Bachelor of Science in Computer Science</strong></p>
+            <p>August 2025 – May 2027</p>
 
-            <div className="education-card">
-              <h2 className="degree">Bachelor of Science in Computer Science</h2>
-              <p className="school">Cal State University Long Beach</p>
-              <p className="date">August 2025 – May 2027</p>
-              <ul className="detail-list">
-                <li>Software Engineering focus.</li>
-                <li>Member of ACM (Association for Computing Machinery).</li>
-              </ul>
-            </div>
+            <ul>
+              <li>Software Engineering focus.</li>
+              <li>Member of ACM (Association for Computing Machinery).</li>
+            </ul>
+          </AccordionDetails>
+        </Accordion>
 
-          </div>
-        </div>
-      </div>
+      </AccordionGroup>
+
     </section>
   );
 };

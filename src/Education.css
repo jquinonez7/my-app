@@ -4,87 +4,16 @@
   padding: 4rem 1.5rem;
 }
 
-/* Content wrapper */
-#education .education-container {
-  max-width: 1150px;
+.education-accordion {
+  width: 90%;
+  max-width: 2000px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 
-/* 2-column layout */
-#education .education-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.5rem;
+#education .MuiAccordionSummary-root {
+  color: rgb(203, 13, 105);
 }
-
-@media (min-width: 900px) {
-  #education .education-grid {
-    grid-template-columns: 1fr 2fr;
-    align-items: flex-start;
-  }
-}
-
-/* LEFT SIDEBAR */
-#education .education-sidebar {
-  color: #7b1e4a; /* darker, readable plum */
-}
-
-#education .education-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-}
-
-#education .education-subtitle {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-#education .education-list {
-  list-style: disc;
-  margin-left: 1.25rem;
-  line-height: 1.5;
-  font-size: 0.95rem;
-}
-
-/* RIGHT SIDE CARDS */
-#education .education-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-#education .education-card {
-  background: #fff;
-  border-radius: 18px;
-  padding: 1.75rem 2rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-/* Card typography */
-#education .degree {
-  color: #444;
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 0.25rem;
-}
-
-#education .school {
-  font-weight: 600;
-  color: #444;
-  margin-bottom: 0.25rem;
-}
-
-#education .date {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 1rem;
-}
-
-#education .detail-list {
-  list-style: disc;
-  margin-left: 1.25rem;
-  line-height: 1.5;
-  color: #555;
+#education .MuiAccordionDetails-root {
+  color: rgb(203, 13, 105);
 }

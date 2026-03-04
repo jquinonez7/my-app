@@ -57,13 +57,21 @@
   font-weight: bold;
   cursor: pointer;
   text-decoration: underline;
+  transition: color 0.2s ease;
+}
 
+.butters-link:hover {
+  color: rgb(255, 162, 205);
 }
 
 .butters-modal {
   background-color: #ffe2f1 !important; 
   color: rgb(203, 13, 105);
   padding: 20px;
+  animation: zoomIn 0.5s;
+}
+.butters-modal button {
+  color: rgb(203, 13, 105)!important;
 }
 
 .butters-image {
@@ -72,4 +80,13 @@
   border-radius: 12px;
   margin: 12px auto 0;
   display: block;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: translate(-50%, -50%) scale(0.6);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
