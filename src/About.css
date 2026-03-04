@@ -61,7 +61,7 @@
 }
 
 .butters-modal {
-  background-color: #ffe2f1;
+  background-color: #ffe2f1 !important; 
   color: rgb(203, 13, 105);
   padding: 20px;
 }
