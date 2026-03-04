@@ -48,31 +48,8 @@
       text-align: center;
     }
   }
-  .hover-item {
-    position: relative;
+  .butters-link {
+    font-weight: bold;
     cursor: pointer;
-    font-weight: 600;
-  }
-  
-  .hover-image {
-    position: absolute;
-    top: 130%;
-    left: 50%;
-    transform: translateX(-50%);
-    
-    width: 40vw;        /* scales with screen */
-    max-width: 600px;   /* caps size */
-    
-    border-radius: 20px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-  
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    z-index: 50;
-  }
-  
-  .hover-item:hover .hover-image {
-    opacity: 1;
-    transform: translateX(-50%) scale(1.05);
+    text-decoration: underline;
   }
