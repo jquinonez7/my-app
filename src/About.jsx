@@ -64,15 +64,18 @@ const About = () => {
         >
           <ModalClose />
           <Typography level="h4">Jade & Butters</Typography>
-
           <img
-            src="/IMG_3701.jpg"
-            alt="Jade and Butters"
-            style={{
-              width: "100%",
-              borderRadius: "12px",
-              marginTop: "12px"
-            }}
+  src="/IMG_3701.jpg"
+  alt="Jade and Butters"
+  style={{
+    maxWidth: "350px",
+    width: "100%",
+    borderRadius: "12px",
+    marginTop: "12px",
+    display: "block",
+    marginLeft: "auto",
+    marginRight: "auto"
+  }}
           />
         </ModalDialog>
       </Modal>
