@@ -1,57 +1,38 @@
 import "./Education.css";
 
-import Accordion from "@mui/joy/Accordion";
-import AccordionDetails from "@mui/joy/AccordionDetails";
-import AccordionGroup from "@mui/joy/AccordionGroup";
-import AccordionSummary from "@mui/joy/AccordionSummary";
-
 const Education = () => {
   return (
     <section id="education">
       <h1 className="about-title">Education</h1>
 
-      <AccordionGroup
-        size="lg"
-        className="education-accordion"
-        transition={{
-          initial: "0.3s ease-out",
-          expanded: "0.2s ease",
-        }}
-      >
+      <div className="education-container">
 
-        <Accordion>
-          <AccordionSummary>
-            Orange Coast College
-          </AccordionSummary>
+        <div className="education-card">
+          <h2>California State University, Long Beach</h2>
+          <p className="degree">B.S. Computer Science</p>
+          <p className="date">Aug 2025 – May 2027</p>
 
-          <AccordionDetails>
-            <p><strong>Associates of Science in Computer Science</strong></p>
-            <p>August 2022 – May 2025</p>
+          <p className="course-title">Relevant Coursework</p>
+          <p className="courses">
+            Algorithms • System Programming • Computer Architecture •
+            Programming Languages • Software Engineering • Computer Security •
+            Discrete Structures • Digital Logic
+          </p>
+        </div>
 
-            <ul>
-              <li>Focused coursework in programming, algorithms, and systems fundamentals.</li>
-              <li>Developed strong foundations in software engineering and problem solving.</li>
-            </ul>
-          </AccordionDetails>
-        </Accordion>
+        <div className="education-card">
+          <h2>Orange Coast College</h2>
+          <p className="degree">A.S. Computer Science</p>
+          <p className="date">Aug 2022 – May 2025</p>
 
-        <Accordion>
-          <AccordionSummary>
-            California State University, Long Beach
-          </AccordionSummary>
+          <p className="course-title">Relevant Coursework</p>
+          <p className="courses">
+            Data Structures • Object-Oriented Programming • Discrete Structures •
+            Intro to Programming
+          </p>
+        </div>
 
-          <AccordionDetails>
-            <p><strong>Bachelor of Science in Computer Science</strong></p>
-            <p>August 2025 – May 2027</p>
-
-            <ul>
-              <li>Software Engineering focus.</li>
-              <li>Member of ACM (Association for Computing Machinery).</li>
-            </ul>
-          </AccordionDetails>
-        </Accordion>
-      </AccordionGroup>
-
+      </div>
     </section>
   );
 };

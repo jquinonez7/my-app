@@ -17,6 +17,7 @@
     "@mui/joy": "^5.0.0-beta.52",
     "@tailwindcss/postcss": "^4.1.13",
     "@tailwindcss/vite": "^4.1.13",
+    "gsp": "^0.5.4",
     "lucide-react": "^0.542.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
