@@ -35,23 +35,32 @@ const Home = () => {
             <a href="#home" className="nav-item">Home</a>
             <a href="#about" className="nav-item">About</a>
             <a href="#education" className="nav-item">Education</a>
-            {/* <a href="#work" className="nav-item">My Work</a>
-            <a href="#contact" className="nav-item">Contact</a> */}
+            <a href="#projects" className="nav-item">My Work</a>
+            {/* <a href="#contact" className="nav-item">Contact</a> */}
           </div>
-           {/* Dark Mode Toggle Button */}
-           <button className="dark-mode-btn" onClick={toggleDarkMode}>
+
+          {/* Dark Mode Toggle Button */}
+          <button className="dark-mode-btn" onClick={toggleDarkMode}>
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </nav>
       </header>
-
 
       {/* Hero Section */}
       <section id="home" className="home-container">
         <div className="hero-container">
           <h1 className="hero-title">Jade Quinonez</h1>
           <p className="hero-description">Computer Science Student</p>
+
           <div className="hero-buttons">
+            <a
+              href="/Jade Quinonez Resume 2026 - Academic.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-primary"
+            >
+              View Resume
+            </a>
           </div>
         </div>
       </section>

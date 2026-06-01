@@ -18,7 +18,7 @@ const About = () => {
             <h1 className="about-title">About Me</h1>
 
             <p className="about-text">
-              Hi! I’m Jade Quinonez. I’m a Computer Science student at CSULB with a
+              Hi! I’m Jade Quinonez :) I’m a Computer Science student at CSULB with a
               concentration in Software Development. I have experience working with
               Python, Java, HTML, CSS, JavaScript, and C++. I’ve used tools and
               frameworks such as React, Vue.js, Tailwind CSS, Git, GitHub, and Linux.
@@ -30,7 +30,7 @@ const About = () => {
               >
                 Butters
               </span>{" "}
-              — she’s a 4-year-old Aussie. I also love fashion, cars, and traveling.
+              , she’s a 4-year-old Aussie. I also love fashion, cars, and traveling.
             </p>
           </div>
 

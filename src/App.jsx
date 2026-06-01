@@ -2,12 +2,12 @@ import "./App.css";
 import Home from "./Home";
 import About from "./About";
 import Education from "./Education";
+import Projects from "./Projects";
 import Contact from "./Contact";
 
 function App() {
   return (
     <div className="App">
-      {/* Home */}
       <section id="home">
         <Home />
       </section>
@@ -20,11 +20,15 @@ function App() {
         <Education />
       </section>
 
+      <section id="projects" className="section">
+        <Projects />
+      </section>
+
       {/* <section id="contact" className="section">
         <Contact />
       </section> */}
-    </div> 
+    </div>
   );
-} 
+}
 
 export default App;

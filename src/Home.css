@@ -107,7 +107,8 @@
 }
 
 .button-primary:hover {
-  background-color: #f130a0;
+  background-color: #49042c;
+  color: white;
 }
 
 .button-secondary {
