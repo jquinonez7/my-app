@@ -53,14 +53,6 @@ const Home = () => {
           <p className="hero-description">Computer Science Student</p>
 
           <div className="hero-buttons">
-            <a
-              href="/Jade Quinonez Resume 2026 - Academic.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="button-primary"
-            >
-              View Resume
-            </a>
           </div>
         </div>
       </section>

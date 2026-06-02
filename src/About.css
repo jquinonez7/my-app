@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 /* Full pink background for About section */
 #about {
   background: #ffe2f1;
@@ -27,7 +27,7 @@
   max-width: 60rem;
   margin: 0 auto;
   text-align: left;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
   color: rgb(203, 13, 105);
 }
 
