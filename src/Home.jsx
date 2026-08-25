@@ -53,6 +53,7 @@ const Home = () => {
           <p className="hero-description">Computer Science Student</p>
 
           <div className="hero-buttons">
+            <a href="#projects" className="button-primary">My Work</a>
           </div>
         </div>
       </section>

@@ -1,15 +1,6 @@
 
 /* ── Google Fonts ── */
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Caveat:wght@500&display=swap');
- 
-@font-face {
-  font-family: 'Priestacy';
-  src: url('/fonts/Priestacy.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
- 
 
 /* Full section background */
 #education {
@@ -92,9 +83,31 @@
 /* title */
 .education-title {
   color: rgb(181, 58, 117);
-  font-family: 'Priestacy', serif;
+  font-family: 'DM Serif Display', serif;
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: normal;
   letter-spacing: 0.01em;
   margin-bottom: 2.5rem;
+}
+
+/* ---------- Dark Mode ---------- */
+.dark #education {
+  background: var(--bg-color);
+}
+
+.dark .education-card {
+  background: var(--dark-card-bg);
+  border-color: var(--dark-card-border);
+}
+
+.dark .education-title,
+.dark .education-card h2 {
+  color: var(--dark-accent);
+}
+
+.dark .degree,
+.dark .date,
+.dark .course-title,
+.dark .courses {
+  color: var(--dark-text);
 }

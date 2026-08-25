@@ -1,7 +1,7 @@
 
 /* ---------- Base Styles ---------- */
 .home-wrapper {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'DM Sans', sans-serif;
 }
 
 /* ---------- Navbar Styles ---------- */
@@ -77,14 +77,19 @@
 }
 
 .hero-title {
-  font-size: 3rem;
-  font-weight: 700;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.6rem, 6vw, 4rem);
+  font-weight: normal;
+  letter-spacing: 0.01em;
   color: #aa1961;
 }
 
 .hero-description {
-  font-size: 1.2rem;
-  color: #555;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: rgb(181, 58, 117);
+  opacity: 0.8;
   margin-top: 10px;
 }
 
@@ -97,32 +102,38 @@
 }
 
 .button-primary {
+  font-family: 'DM Sans', sans-serif;
   background-color: #af1e4c;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 16px rgba(175, 30, 76, 0.25);
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .button-primary:hover {
   background-color: #49042c;
   color: white;
+  transform: translateY(-2px);
 }
 
 .button-secondary {
+  font-family: 'DM Sans', sans-serif;
   background-color: #ff9fc2;
   color: #af1e4c;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border-radius: 10px;
   text-decoration: none;
   font-weight: 500;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .button-secondary:hover {
   background-color: #f130a0;
+  color: white;
+  transform: translateY(-2px);
 }
 
 /* ---------- Star Overlay ---------- */
@@ -150,6 +161,12 @@
   --hero-bg: linear-gradient(to bottom right, #0a0a0a, #440b36);
   --button-primary: #181717;
   --button-secondary: #fff;
+
+  /* Shared dark-mode palette for About / Education / Projects */
+  --dark-accent: #ff8dce;
+  --dark-text: #e8c7d6;
+  --dark-card-bg: #241318;
+  --dark-card-border: #4a2a35;
 }
 
 /* ---------- Dark Mode Styles ---------- */

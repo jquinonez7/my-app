@@ -29,7 +29,7 @@ const About = () => {
                 onClick={() => setOpen(true)}
               >
                 Butters
-              </span>{" "}
+              </span>
               , she’s a 4-year-old Aussie. I also love fashion, cars, and traveling.
             </p>
           </div>
