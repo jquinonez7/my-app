@@ -1,15 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,300&display=swap');
 #projects {
     padding: 4rem 2rem;
-    background: #ffe2f1;
+    background: linear-gradient(to bottom right, #fff0f6, #ffd6e8);
+    position: relative;
+    overflow: hidden;
   }
   
   .projects-title {
     color: rgb(181, 58, 117);
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: normal;
-    letter-spacing: 0.01em;
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
     margin-bottom: 2.5rem;
   }
 
@@ -33,6 +36,8 @@
     text-align: left;
     box-shadow: 0 4px 14px rgba(181, 58, 117, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    z-index: 0;
   }
 
   .project-card:hover {
@@ -41,17 +46,21 @@
   }
 
   .project-card h2 {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'DM Sans', sans-serif;
     font-size: 1.3rem;
-    font-weight: 400;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -0.005em;
     color: rgb(181, 58, 117);
     margin: 0;
   }
 
   .project-subtitle {
-    font-family: 'DM Serif Display', serif;
-    font-style: italic;
-    font-size: 0.9rem;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
     color: rgb(181, 58, 117);
     opacity: 0.75;
     margin: 0;
@@ -127,20 +136,21 @@
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
   }
 
-  .dark .project-card h2 {
-    color: var(--dark-accent);
-  }
+  /* each card's title picks up a different gem tone, echoing the rhinestones in the hero name */
+  .dark .project-card:nth-of-type(3n+1) h2 { color: var(--gem-gold); }
+  .dark .project-card:nth-of-type(3n+2) h2 { color: var(--gem-pink); }
+  .dark .project-card:nth-of-type(3n+3) h2 { color: var(--gem-violet); }
 
   .dark .project-subtitle,
   .dark .project-desc {
     color: var(--dark-text);
   }
 
-  .dark .tag {
-    background: rgba(255, 141, 206, 0.12);
-    border-color: var(--dark-card-border);
-    color: var(--dark-accent);
-  }
+  .dark .tag:nth-of-type(5n+1) { background: rgba(240, 207, 107, 0.14); border-color: rgba(240, 207, 107, 0.4); color: var(--gem-gold); }
+  .dark .tag:nth-of-type(5n+2) { background: rgba(255, 141, 206, 0.14); border-color: rgba(255, 141, 206, 0.4); color: var(--gem-pink); }
+  .dark .tag:nth-of-type(5n+3) { background: rgba(201, 166, 245, 0.14); border-color: rgba(201, 166, 245, 0.4); color: var(--gem-violet); }
+  .dark .tag:nth-of-type(5n+4) { background: rgba(135, 210, 240, 0.14); border-color: rgba(135, 210, 240, 0.4); color: var(--gem-sky); }
+  .dark .tag:nth-of-type(5n+5) { background: rgba(143, 224, 176, 0.14); border-color: rgba(143, 224, 176, 0.4); color: var(--gem-green); }
 
   .dark .project-links a {
     color: var(--dark-accent);

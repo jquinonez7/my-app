@@ -11,6 +11,30 @@ const About = () => {
   return (
     <>
       <section id="about" className="about-container">
+        <img
+          src="/images/gems/gem-flower-diamond.png"
+          alt=""
+          className="gem-accent"
+          style={{ width: "46px", top: "18px", right: "6%", transform: "rotate(8deg)" }}
+        />
+        <img
+          src="/images/gems/gem-bow-pink.png"
+          alt=""
+          className="gem-accent"
+          style={{ width: "38px", bottom: "24px", left: "4%", transform: "rotate(-10deg)" }}
+        />
+        <img
+          src="/images/gems/gem-cherry.png"
+          alt=""
+          className="gem-accent"
+          style={{ width: "26px", top: "16px", left: "5%", transform: "rotate(10deg)" }}
+        />
+        <img
+          src="/images/gems/gem-heart-skyblue.png"
+          alt=""
+          className="gem-accent"
+          style={{ width: "26px", bottom: "22px", right: "4%", transform: "rotate(-8deg)" }}
+        />
         <div className="about-content">
 
           {/* Left Side */}
@@ -85,7 +109,7 @@ const About = () => {
 </Typography>
 
           <img
-            src="/IMG_3701.jpg"
+            src="/images/IMG_3701.jpg"
             alt="Jade and Butters"
             className="butters-image"
           />

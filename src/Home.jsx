@@ -1,23 +1,21 @@
-// <a href="#work" className="button-primary">My Work</a> 
-// <a href="#contact" className="button-secondary">Contact Me →</a>
-import "./Home.css"; // Import CSS styles
+import "./Home.css";
 import { useState, useEffect } from "react";
-import { Moon, Sun } from "lucide-react"; // Import Moon & Sun Icons
-
+import { Moon, Sun } from "lucide-react";
+// import PhysicsStickerWall from "./PhysicsStickerWall";
+// import InteractivePet from "./InteractivePet";
+import JadeScript from "./assets/jade-quinonez-jeweled.png";
 
 const Home = () => {
   const [darkMode, setDarkMode] = useState(
     localStorage.getItem("theme") === "dark"
   );
 
-  // Toggle Dark Mode
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     localStorage.setItem("theme", darkMode ? "light" : "dark");
     document.documentElement.classList.toggle("dark", !darkMode);
   };
 
-  // Apply Theme on Load
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark");
@@ -28,7 +26,6 @@ const Home = () => {
 
   return (
     <div className="home-wrapper">
-      {/* Navigation Bar */}
       <header className="navbar-container">
         <nav className="navbar">
           <div className="nav-links">
@@ -36,24 +33,79 @@ const Home = () => {
             <a href="#about" className="nav-item">About</a>
             <a href="#education" className="nav-item">Education</a>
             <a href="#projects" className="nav-item">My Work</a>
-            {/* <a href="#contact" className="nav-item">Contact</a> */}
           </div>
 
-          {/* Dark Mode Toggle Button */}
           <button className="dark-mode-btn" onClick={toggleDarkMode}>
             {darkMode ? <Sun size={20} /> : <Moon size={20} />}
           </button>
         </nav>
       </header>
 
-      {/* Hero Section */}
-      <section id="home" className="home-container">
-        <div className="hero-container">
-          <h1 className="hero-title">Jade Quinonez</h1>
-          <p className="hero-description">Computer Science Student</p>
+      <section id="home" className="home-container" style={{ position: "relative", overflow: "hidden" }}>
+        {/* sticker wall fills the whole hero section, sits behind everything */}
+        {/* <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            zIndex: 0,
+          }}
+        >
+          <PhysicsStickerWall
+            background="transparent"
+            stickerCount={10}
+            stickerSize={90}
+          />
+        </div> */}
 
+        {/* text sits above it, clicks pass through to stickers except on the button */}
+        <div
+          className="hero-container"
+          style={{ position: "relative", zIndex: 1, pointerEvents: "none" }}
+        >
+          <img
+            src="/images/gems/gem-marquise-pink.png"
+            alt=""
+            className="gem-accent"
+            style={{ width: "30px", top: "-20px", left: "10%", transform: "rotate(-12deg)" }}
+          />
+          <img
+            src="/images/gems/gem-heart-pink.png"
+            alt=""
+            className="gem-accent"
+            style={{ width: "40px", bottom: "-10px", right: "10%", transform: "rotate(10deg)" }}
+          />
+          <img
+            src="/images/gems/gem-star-pink.png"
+            alt=""
+            className="gem-accent"
+            style={{ width: "26px", top: "60px", right: "20%", transform: "rotate(14deg)" }}
+          />
+          <img
+            src="/images/gems/gem-pearl.png"
+            alt=""
+            className="gem-accent"
+            style={{ width: "22px", bottom: "50px", left: "16%", transform: "rotate(-6deg)" }}
+          />
+          <img
+            src="/images/gems/gem-flower-gold.png"
+            alt=""
+            className="gem-accent"
+            style={{ width: "32px", top: "20px", left: "30%", transform: "rotate(8deg)" }}
+          />
+          <img
+            src="/images/gems/gem-round-diamond.png"
+            alt=""
+            className="gem-accent"
+            style={{ width: "24px", bottom: "10px", right: "2%", transform: "rotate(-14deg)" }}
+          />
+          <h1 className="hero-title">
+            <img src={JadeScript} alt="Jade Quinonez" className="hero-title-img" />
+          </h1>
+          <p className="hero-description">Computer Science Student</p>
           <div className="hero-buttons">
-            <a href="#projects" className="button-primary">My Work</a>
+            <a href="#projects" className="button-primary" style={{ pointerEvents: "auto" }}>
+              My Work
+            </a>
           </div>
         </div>
       </section>

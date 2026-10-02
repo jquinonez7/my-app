@@ -3,11 +3,42 @@ import "./Projects.css";
 const Projects = () => {
   return (
     <section id="projects">
+      <img
+        src="/images/gems/gem-flower-diamond.png"
+        alt=""
+        className="gem-accent"
+        style={{ width: "40px", top: "24px", left: "4%", transform: "rotate(-8deg)" }}
+      />
+      <img
+        src="/images/gems/gem-flower-red.png"
+        alt=""
+        className="gem-accent"
+        style={{ width: "28px", top: "240px", right: "3%", transform: "rotate(10deg)" }}
+      />
+      <img
+        src="/images/gems/gem-heart-ruby.png"
+        alt=""
+        className="gem-accent"
+        style={{ width: "30px", bottom: "240px", left: "3%", transform: "rotate(8deg)" }}
+      />
+      <img
+        src="/images/gems/gem-round-diamond.png"
+        alt=""
+        className="gem-accent"
+        style={{ width: "26px", bottom: "24px", right: "4%", transform: "rotate(-10deg)" }}
+      />
+
       <h1 className="projects-title">Projects</h1>
 
       <div className="projects-container">
 
         <div className="project-card">
+          <img
+            src="/images/gems/gem-cherry.png"
+            alt=""
+            className="gem-accent gem-accent-behind"
+            style={{ width: "38px", top: "-16px", right: "-12px", transform: "rotate(-10deg)" }}
+          />
           <h2>Lights Out!</h2>
           <p className="project-subtitle">F1 Grid Guesser</p>
           <div className="project-tags">
@@ -17,20 +48,29 @@ const Projects = () => {
             <span className="tag">Vite</span>
           </div>
           <p className="project-desc">
-            A Formula 1 trivia game built during the Snap Engineering Academy. 
-            Pick a season from 2018–2026, then race a 30-second clock to guess 
-            which driver finished in a given championship position 
-            — with live standings pulled from a racing API, a lives system, 
+            A Formula 1 trivia game built during the Snap Engineering Academy.
+            Pick a season from 2018–2026, then race a 30-second clock to guess
+            which driver finished in a given championship position
+            — with live standings pulled from a racing API, a lives system,
             teammate-based decoy answers, and a confetti celebration for high scores.
           </p>
           <div className="project-links">
             <a href="https://github.com/jquinonez7/game-show-app" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
+            <a href="https://jquinonez7.github.io/game-show-app/" target="_blank" rel="noopener noreferrer">
+              Play it now!
+            </a>
           </div>
         </div>
 
         <div className="project-card">
+          <img
+            src="/images/gems/gem-heart-pink.png"
+            alt=""
+            className="gem-accent gem-accent-behind"
+            style={{ width: "34px", bottom: "-14px", left: "-10px", transform: "rotate(10deg)" }}
+          />
           <h2>Dog Tracker</h2>
           <p className="project-subtitle">Pet Management REST API</p>
           <div className="project-tags">
@@ -41,7 +81,7 @@ const Projects = () => {
             <span className="tag">Python</span>
           </div>
           <p className="project-desc">
-            REST API for tracking dog health profiles, built with FastAPI, SQLModel, and SQLite.
+
             REST API for tracking dog health profiles, built with FastAPI, SQLModel, and SQLite. Features JWT authentication,
             bcrypt password hashing, and full CRUD with a React + TypeScript frontend in progress.
           </p>
@@ -53,6 +93,12 @@ const Projects = () => {
         </div>
 
         <div className="project-card">
+          <img
+            src="/images/gems/gem-heart-purple.png"
+            alt=""
+            className="gem-accent gem-accent-behind"
+            style={{ width: "34px", top: "-16px", left: "-12px", transform: "rotate(-8deg)" }}
+          />
           <h2>My Journal</h2>
           <p className="project-subtitle">Mental Health Hub for Snapchat</p>
           <div className="project-tags">
