@@ -21,7 +21,7 @@
 #about .about-content {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 2rem;
 
   width: 100%;
@@ -244,4 +244,210 @@
 
 .dark .butters-modal button {
   color: var(--dark-text) !important;
+}
+
+
+/* ---------- Photobooth ---------- */
+
+.photobooth {
+  flex: 0 0 300px;
+  width: 300px;
+  max-width: 100%;
+  order: 2; /* right side on desktop */
+}
+
+.booth-face {
+  position: relative;
+  min-height: 430px;
+  padding: 18px 18px 0;
+  border-radius: 26px;
+  background: linear-gradient(160deg, #fcecf3 0%, #f3cfe0 100%);
+  border: 1px solid #e8b6cc;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -8px 16px rgba(181, 58, 117, 0.16),
+    0 20px 36px rgba(181, 58, 117, 0.22);
+}
+
+.booth-plate {
+  width: 62%;
+  margin: 0 auto;
+  padding: 8px 6px 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  border-radius: 6px;
+  background: linear-gradient(#f6e6ee, #dcc0cf);
+  border: 1px solid #c9a3b8;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.booth-plate span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6e2a4d;
+}
+
+.booth-arrow {
+  display: block;
+  width: 0;
+  height: 0;
+  margin-top: 3px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid #6e2a4d;
+}
+
+.booth-led {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #d9a9c0;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.7);
+}
+
+.booth-bezel {
+  position: relative;
+  margin-top: 18px;
+  padding: 10px;
+  border-radius: 22px;
+  background: linear-gradient(#fbeaf2, #ecc4d7);
+  border: 1px solid #e0adc4;
+  box-shadow: inset 0 2px 4px rgba(181, 58, 117, 0.18), 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.booth-slot {
+  height: 54px;
+  border-radius: 14px;
+  background: #1c0f16;
+  box-shadow: inset 0 6px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* sits over the slot; clips the top edge only, so the print can hang down over the face */
+.booth-window {
+  position: absolute;
+  top: 10px;
+  left: 22px;
+  right: 22px;
+  height: 54px;
+  clip-path: inset(0 -30px -800px -30px);
+}
+
+.booth-photo {
+  margin: 0;
+  padding: 9px 9px 30px;
+  background: #fffdfb;
+  border-radius: 3px;
+  box-shadow: 0 6px 14px rgba(58, 18, 38, 0.28);
+  transform: translateY(-104%) rotate(-0.6deg);
+  transform-origin: 50% 0;
+  will-change: transform;
+}
+
+.booth-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 1px;
+  filter: grayscale(1) contrast(1.08);
+}
+
+/* prints in a few stop-and-go pulses, like a real printer feeding paper */
+.photobooth.is-printed .booth-photo {
+  animation: booth-print 3.4s cubic-bezier(0.3, 0.7, 0.3, 1) 0.35s both;
+}
+
+.photobooth.is-printed .booth-led {
+  animation: booth-led 3.4s ease 0.2s both;
+}
+
+@keyframes booth-print {
+  0%   { transform: translateY(-104%) rotate(-0.6deg); }
+  20%  { transform: translateY(-82%) rotate(-0.6deg); }
+  28%  { transform: translateY(-82%) rotate(-0.6deg); }
+  48%  { transform: translateY(-50%) rotate(-0.6deg); }
+  56%  { transform: translateY(-50%) rotate(-0.6deg); }
+  80%  { transform: translateY(-9%) rotate(-0.6deg); }
+  86%  { transform: translateY(-9%) rotate(-0.6deg); }
+  100% { transform: translateY(-5%) rotate(-0.6deg); }
+}
+
+@keyframes booth-led {
+  0%   { background: #d9a9c0; box-shadow: none; }
+  6%   { background: #ff4f9a; box-shadow: 0 0 8px 2px rgba(255, 79, 154, 0.85); }
+  18%  { background: #ff4f9a; box-shadow: 0 0 8px 2px rgba(255, 79, 154, 0.85); }
+  24%  { background: #d9a9c0; box-shadow: none; }
+  30%  { background: #ff4f9a; box-shadow: 0 0 8px 2px rgba(255, 79, 154, 0.85); }
+  50%  { background: #ff4f9a; box-shadow: 0 0 8px 2px rgba(255, 79, 154, 0.85); }
+  58%  { background: #d9a9c0; box-shadow: none; }
+  64%  { background: #ff4f9a; box-shadow: 0 0 8px 2px rgba(255, 79, 154, 0.85); }
+  90%  { background: #ff4f9a; box-shadow: 0 0 8px 2px rgba(255, 79, 154, 0.85); }
+  100% { background: #d9a9c0; box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photobooth .booth-photo {
+    animation: none !important;
+    transform: translateY(-5%) rotate(-0.6deg);
+  }
+
+  .photobooth .booth-led {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .photobooth {
+    margin: 0 auto;
+    order: 0; /* booth sits above the text on tablets and phones */
+  }
+}
+
+/* dark mode */
+.dark .booth-face {
+  background: linear-gradient(160deg, #3b2331, #26151f);
+  border-color: #52324a;
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -8px 16px rgba(0, 0, 0, 0.35),
+    0 20px 36px rgba(0, 0, 0, 0.55);
+}
+
+.dark .booth-plate {
+  background: linear-gradient(#4a3441, #3a2630);
+  border-color: #5d3f52;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.dark .booth-plate span {
+  color: #f1c9dc;
+}
+
+.dark .booth-arrow {
+  border-top-color: #f1c9dc;
+}
+
+.dark .booth-bezel {
+  background: linear-gradient(#34202b, #27151f);
+  border-color: #4d2f43;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4), 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.dark .booth-slot {
+  background: #0b0508;
+}
+
+.dark .booth-led {
+  background: #7a5368;
+  box-shadow: none;
 }

@@ -98,6 +98,30 @@ const Home = () => {
             className="gem-accent"
             style={{ width: "24px", bottom: "10px", right: "2%", transform: "rotate(-14deg)" }}
           />
+          <img
+            src="/images/hero/code.webp"
+            alt=""
+            className="gem-accent"
+            style={{ width: "clamp(40px, 8vw, 60px)", top: "-54px", left: "19%", transform: "rotate(-8deg)" }}
+          />
+          <img
+            src="/images/hero/terminal.webp"
+            alt=""
+            className="gem-accent"
+            style={{ width: "clamp(44px, 9vw, 66px)", top: "30px", right: "93%", transform: "rotate(7deg)" }}
+          />
+          <img
+            src="/images/hero/laptop.webp"
+            alt=""
+            className="gem-accent"
+            style={{ width: "clamp(50px, 10vw, 76px)", top: "174px", left: "75%", transform: "rotate(-6deg)" }}
+          />
+          <img
+            src="/images/hero/gear.webp"
+            alt=""
+            className="gem-accent"
+            style={{ width: "clamp(38px, 7vw, 56px)", top: "176px", right: "-1%", transform: "rotate(12deg)" }}
+          />
           <h1 className="hero-title">
             <img src={JadeScript} alt="Jade Quinonez" className="hero-title-img" />
           </h1>

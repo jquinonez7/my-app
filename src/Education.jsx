@@ -34,6 +34,12 @@ const Education = () => {
 
         <div className="education-card">
           <img
+            src="/images/washi-tape.webp"
+            alt=""
+            className="tape-accent"
+            style={{ top: "-17px", left: "50%", transform: "translateX(-50%) rotate(-4deg)" }}
+          />
+          <img
             src="/images/gems/gem-bow-pink.png"
             alt=""
             className="gem-accent gem-accent-behind"
@@ -52,6 +58,12 @@ const Education = () => {
         </div>
 
         <div className="education-card">
+          <img
+            src="/images/washi-tape.webp"
+            alt=""
+            className="tape-accent"
+            style={{ top: "-17px", right: "10%", transform: "rotate(5deg)" }}
+          />
           <img
             src="/images/gems/gem-round-diamond.png"
             alt=""

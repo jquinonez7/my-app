@@ -1,5 +1,5 @@
 import "./About.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Modal from "@mui/joy/Modal";
 import ModalDialog from "@mui/joy/ModalDialog";
 import ModalClose from "@mui/joy/ModalClose";
@@ -7,6 +7,28 @@ import Typography from "@mui/joy/Typography";
 
 const About = () => {
   const [open, setOpen] = useState(false);
+  const [printed, setPrinted] = useState(false);
+  const boothRef = useRef(null);
+
+  // the photo only starts printing once the booth scrolls into view
+  useEffect(() => {
+    const el = boothRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setPrinted(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setPrinted(true);
+          io.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   return (
     <>
@@ -37,6 +59,29 @@ const About = () => {
         />
         <div className="about-content">
 
+          {/* Photobooth (right side on desktop, via CSS order) — the photo prints out of the slot */}
+          <div className={`photobooth${printed ? " is-printed" : ""}`} ref={boothRef}>
+            <div className="booth-face">
+              <div className="booth-plate">
+                <span>Photos delivered here</span>
+                <i className="booth-arrow" aria-hidden="true" />
+              </div>
+              <div className="booth-led" aria-hidden="true" />
+              <div className="booth-bezel">
+                <div className="booth-slot" />
+                <div className="booth-window">
+                  <figure className="booth-photo">
+                    <img
+                      src="/images/about/me-photo.webp"
+                      alt="Jade smiling on the beach at sunset"
+                      decoding="async"
+                    />
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Left Side */}
           <div className="about-text-container">
             <h1 className="about-title">About Me</h1>
@@ -58,7 +103,7 @@ const About = () => {
             </p>
           </div>
 
-          {/* ASCII Art */}
+          {/* ASCII Art (disabled — replaced by the photobooth above)
           <div className="ascii-art">
             <pre>
               {`⠀⠀⠀⠀⠀⢀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀
@@ -74,6 +119,7 @@ const About = () => {
 ⠀⠀⠀⠀⠉⠁⠀⠀⠀⠉⠁⠀⠀⠀⠀⠀`}
             </pre>
           </div>
+          */}
 
         </div>
       </section>

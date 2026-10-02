@@ -1,157 +1,441 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,300&display=swap');
+
 #projects {
-    padding: 4rem 2rem;
-    background: linear-gradient(to bottom right, #fff0f6, #ffd6e8);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .projects-title {
-    color: rgb(181, 58, 117);
-    font-family: 'DM Sans', sans-serif;
-    font-size: clamp(2.2rem, 6vw, 3.4rem);
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: -0.01em;
-    margin-bottom: 2.5rem;
-  }
+  padding: 4rem 2rem 5rem;
+  background: linear-gradient(to bottom right, #fff0f6, #ffd6e8);
+  position: relative;
+  /* letters pop up out of the section, so only clip sideways */
+  overflow-x: clip;
+}
 
-  .projects-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
+.projects-title {
+  color: rgb(181, 58, 117);
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 2.5rem;
+}
+
+/* ---------- shared text styles ---------- */
+.project-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: rgb(181, 58, 117);
+  opacity: 0.75;
+  margin: 0 0 0.6rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+.tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #ffe2f1;
+  border: 1px solid #f5b7d6;
+  color: rgb(181, 58, 117);
+}
+
+.project-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: rgb(181, 58, 117);
+  margin: 0;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  padding-top: 0.8rem;
+  justify-content: flex-start;
+}
+
+.project-links a {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: rgb(203, 13, 105);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.project-links a:hover {
+  border-color: rgb(203, 13, 105);
+}
+
+/* =================== ENVELOPE (active) =================== */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  gap: 7rem;
+  max-width: 640px;
+  margin: 0 auto;
+  padding-top: 1rem;
+}
+
+.project-card {
+  --env-paper: #fff6fa;
+  --env-label: #fffafc;
+  --env-flap: #fff0f7;
+  --env-flap-2: #ffe2f1;
+  --env-lining: #ffd0e6;
+  --env-line: #f5b7d6;
+  --letter-bg: #fffdf9;
+  --env-shadow: rgba(181, 58, 117, 0.14);
+
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  color: rgb(181, 58, 117);
+  cursor: pointer;
+  outline: none;
+  transition: transform 0.35s ease, z-index 0s 0.6s;
+}
+
+.project-card.is-open {
+  z-index: 10;
+  transform: translateY(-4px);
+  transition: transform 0.35s ease, z-index 0s 0s;
+}
+
+.project-card:focus-visible .envelope-body {
+  outline: 2px solid rgb(203, 13, 105);
+  outline-offset: 3px;
+}
+
+/* front of the envelope */
+.envelope-body {
+  position: relative;
+  z-index: 2;
+  padding: 124px 1.4rem 1.6rem;
+  text-align: center;
+  background: var(--env-paper);
+  border: 1px solid var(--env-line);
+  border-radius: 12px;
+  box-shadow: 0 6px 18px var(--env-shadow);
+  transition: box-shadow 0.35s ease;
+}
+
+.project-card.is-open .envelope-body {
+  box-shadow: 0 14px 30px var(--env-shadow);
+}
+
+/* the two side folds meeting under the flap tip */
+.envelope-body::before {
+  content: "";
+  position: absolute;
+  top: 112px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 0 0 11px 11px;
+  pointer-events: none;
+  background:
+    linear-gradient(to top left, transparent calc(50% - 0.75px), var(--env-line) 50%, transparent calc(50% + 0.75px)) left top / 50% 100% no-repeat,
+    linear-gradient(to top right, transparent calc(50% - 0.75px), var(--env-line) 50%, transparent calc(50% + 0.75px)) right top / 50% 100% no-repeat;
+}
+
+/* address label */
+.envelope-label {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.8rem 1.1rem 0.9rem;
+  background: var(--env-label);
+  border: 1px dashed var(--env-line);
+  border-radius: 10px;
+}
+
+.envelope-label h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  color: rgb(181, 58, 117);
+  margin: 0 0 0.25rem;
+}
+
+/* flap — folds up from the top edge */
+.envelope-flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 112px;
+  z-index: 3;
+  transform-origin: 50% 0;
+  pointer-events: none;
+  filter: drop-shadow(0 1.5px 0 var(--env-line)) drop-shadow(0 4px 5px var(--env-shadow));
+  transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), z-index 0s 0.27s;
+}
+
+.envelope-flap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px 12px 0 0;
+  background: linear-gradient(180deg, var(--env-flap), var(--env-flap-2));
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transition: background 0s 0.27s;
+}
+
+.project-card.is-open .envelope-flap {
+  transform: scaleY(-1);
+  z-index: 0;
+}
+
+.project-card.is-open .envelope-flap::before {
+  background: var(--env-lining);
+}
+
+/* gem sealing the flap */
+.envelope-seal {
+  position: absolute;
+  top: 112px;
+  left: 50%;
+  width: 46px;
+  z-index: 4;
+  pointer-events: none;
+  user-select: none;
+  transform: translate(-50%, -55%) rotate(-8deg);
+  filter: drop-shadow(0 3px 5px rgba(58, 18, 38, 0.3));
+  transition: opacity 0.2s ease 0.1s, transform 0.4s ease;
+}
+
+.project-card.is-open .envelope-seal {
+  opacity: 0;
+  transform: translate(-50%, -55%) rotate(-8deg) scale(0.5);
+  transition: opacity 0.2s ease, transform 0.3s ease;
+}
+
+.project-card .tape-accent {
+  z-index: 5;
+  transition: opacity 0.25s ease 0.2s;
+}
+
+/* the tape peels away as the letter comes out so it never covers the links */
+.project-card.is-open .tape-accent {
+  opacity: 0;
+  transition: opacity 0.15s ease 0s;
+}
+
+/* the letter, tucked inside until it's opened */
+.envelope-letter {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 14px;
+  z-index: 1;
+  padding: 1.2rem 1.3rem 4rem;
+  text-align: left;
+  background: var(--letter-bg);
+  border: 1px solid var(--env-line);
+  border-radius: 6px;
+  box-shadow: 0 8px 20px var(--env-shadow);
+  opacity: 0;
+  pointer-events: none;
+  transition: bottom 0.6s cubic-bezier(0.34, 1.45, 0.5, 1), opacity 0.2s ease 0.35s;
+}
+
+.project-card.is-open .envelope-letter {
+  bottom: calc(100% - 40px);
+  opacity: 1;
+  pointer-events: auto;
+  transition: bottom 0.6s cubic-bezier(0.34, 1.45, 0.5, 1), opacity 0.12s ease 0s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .envelope-flap,
+  .envelope-flap::before,
+  .envelope-seal,
+  .envelope-letter,
+  .project-card .tape-accent {
+    transition: none !important;
   }
+}
 
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    padding: 1.6rem;
-    border-radius: 12px;
-    border: 1px solid #f5b7d6;
-    background: #fff6fa;
-    color: rgb(181, 58, 117);
-    text-align: left;
-    box-shadow: 0 4px 14px rgba(181, 58, 117, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    position: relative;
-    z-index: 0;
-  }
+/* ---------- Dark Mode ---------- */
+.dark #projects {
+  background: var(--bg-color);
+}
 
-  .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(181, 58, 117, 0.14);
-  }
+.dark .projects-title {
+  color: var(--dark-accent);
+}
 
-  .project-card h2 {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1.3rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: -0.005em;
-    color: rgb(181, 58, 117);
-    margin: 0;
-  }
+.dark .project-card {
+  --env-paper: var(--dark-card-bg);
+  --env-label: #2c1823;
+  --env-flap: #33202b;
+  --env-flap-2: #2a1721;
+  --env-lining: #3e2434;
+  --env-line: var(--dark-card-border);
+  --letter-bg: #301c27;
+  --env-shadow: rgba(0, 0, 0, 0.45);
+  color: var(--dark-text);
+}
 
-  .project-subtitle {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    color: rgb(181, 58, 117);
-    opacity: 0.75;
-    margin: 0;
-  }
+/* each envelope's title picks up a different gem tone, echoing the rhinestones in the hero name */
+.dark .project-card:nth-of-type(3n+1) h2 { color: var(--gem-gold); }
+.dark .project-card:nth-of-type(3n+2) h2 { color: var(--gem-pink); }
+.dark .project-card:nth-of-type(3n+3) h2 { color: var(--gem-violet); }
 
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    justify-content: flex-start;
-  }
+.dark .project-subtitle,
+.dark .project-desc {
+  color: var(--dark-text);
+}
 
-  .tag {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-    padding: 4px 10px;
-    border-radius: 6px;
-    background: #ffe2f1;
-    border: 1px solid #f5b7d6;
-    color: rgb(181, 58, 117);
-  }
+.dark .tag:nth-of-type(5n+1) { background: rgba(240, 207, 107, 0.14); border-color: rgba(240, 207, 107, 0.4); color: var(--gem-gold); }
+.dark .tag:nth-of-type(5n+2) { background: rgba(255, 141, 206, 0.14); border-color: rgba(255, 141, 206, 0.4); color: var(--gem-pink); }
+.dark .tag:nth-of-type(5n+3) { background: rgba(201, 166, 245, 0.14); border-color: rgba(201, 166, 245, 0.4); color: var(--gem-violet); }
+.dark .tag:nth-of-type(5n+4) { background: rgba(135, 210, 240, 0.14); border-color: rgba(135, 210, 240, 0.4); color: var(--gem-sky); }
+.dark .tag:nth-of-type(5n+5) { background: rgba(143, 224, 176, 0.14); border-color: rgba(143, 224, 176, 0.4); color: var(--gem-green); }
 
-  .project-desc {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 300;
-    line-height: 1.7;
-    color: rgb(181, 58, 117);
-    margin: 0;
-  }
+.dark .project-links a {
+  color: var(--dark-accent);
+}
 
-  .project-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: auto;
-    padding-top: 0.5rem;
-    justify-content: flex-start;
-  }
+/* =====================================================================
+   POLAROID VERSION (disabled) — see the matching note at the bottom of
+   Projects.jsx. To use it: remove the ENVELOPE block above (everything
+   from ".projects-container" through the ".dark .project-card" variable
+   rules) and uncomment everything below. The shared text styles at the
+   top need these tweaks for polaroids: .project-subtitle margin 0,
+   .project-desc font-size 0.85rem / line-height 1.65, and .project-links
+   padding-top 0.2rem / justify-content center.
 
-  .project-links a {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-decoration: none;
-    color: rgb(203, 13, 105);
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.2s ease;
-  }
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.75rem 2rem;
+  align-items: start;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-top: 0.5rem;
+}
 
-  .project-links a:hover {
-    border-color: rgb(203, 13, 105);
-  }
+.project-card {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 14px 22px;
+  background: #fffdfb;
+  border: 1px solid #f1dbe6;
+  border-radius: 4px;
+  color: rgb(181, 58, 117);
+  text-align: center;
+  outline: none;
+  box-shadow: 0 10px 24px rgba(181, 58, 117, 0.18), 0 2px 4px rgba(181, 58, 117, 0.08);
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.5, 1), box-shadow 0.35s ease;
+}
 
-  /* ---------- Dark Mode ---------- */
-  .dark #projects {
-    background: var(--bg-color);
-  }
+.project-card:nth-of-type(3n+1) { --tilt: -2deg; }
+.project-card:nth-of-type(3n+2) { --tilt: 1.6deg; }
+.project-card:nth-of-type(3n+3) { --tilt: -1.1deg; }
 
-  .dark .projects-title {
-    color: var(--dark-accent);
-  }
+.project-card:hover,
+.project-card:focus-within {
+  z-index: 5;
+  transform: rotate(0deg) translateY(-8px) scale(1.025);
+  box-shadow: 0 22px 40px rgba(181, 58, 117, 0.26), 0 4px 8px rgba(181, 58, 117, 0.1);
+}
 
-  .dark .project-card {
-    background: var(--dark-card-bg);
-    border-color: var(--dark-card-border);
-    color: var(--dark-text);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-  }
+.project-card:focus-visible {
+  outline: 2px solid rgb(203, 13, 105);
+  outline-offset: 4px;
+}
 
-  .dark .project-card:hover {
-    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
-  }
+.polaroid-photo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 2px;
+  background: linear-gradient(145deg, #ffe9f3, #ffd3e8);
+  box-shadow: inset 0 0 0 1px rgba(181, 58, 117, 0.12), inset 0 3px 10px rgba(181, 58, 117, 0.16);
+}
 
-  /* each card's title picks up a different gem tone, echoing the rhinestones in the hero name */
-  .dark .project-card:nth-of-type(3n+1) h2 { color: var(--gem-gold); }
-  .dark .project-card:nth-of-type(3n+2) h2 { color: var(--gem-pink); }
-  .dark .project-card:nth-of-type(3n+3) h2 { color: var(--gem-violet); }
+.polaroid-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), transparent 42%);
+}
 
-  .dark .project-subtitle,
-  .dark .project-desc {
-    color: var(--dark-text);
-  }
+.polaroid-photo img {
+  width: 84%;
+  height: 84%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(58, 18, 38, 0.18));
+}
 
-  .dark .tag:nth-of-type(5n+1) { background: rgba(240, 207, 107, 0.14); border-color: rgba(240, 207, 107, 0.4); color: var(--gem-gold); }
-  .dark .tag:nth-of-type(5n+2) { background: rgba(255, 141, 206, 0.14); border-color: rgba(255, 141, 206, 0.4); color: var(--gem-pink); }
-  .dark .tag:nth-of-type(5n+3) { background: rgba(201, 166, 245, 0.14); border-color: rgba(201, 166, 245, 0.4); color: var(--gem-violet); }
-  .dark .tag:nth-of-type(5n+4) { background: rgba(135, 210, 240, 0.14); border-color: rgba(135, 210, 240, 0.4); color: var(--gem-sky); }
-  .dark .tag:nth-of-type(5n+5) { background: rgba(143, 224, 176, 0.14); border-color: rgba(143, 224, 176, 0.4); color: var(--gem-green); }
+.polaroid-photo.is-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: none;
+}
 
-  .dark .project-links a {
-    color: var(--dark-accent);
-  }
+.polaroid-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1.1rem 0.4rem 0;
+}
+
+.polaroid-caption h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+  color: rgb(181, 58, 117);
+  margin: 0;
+}
+
+.polaroid-caption .project-desc {
+  text-align: left;
+}
+
+.dark .project-card {
+  background: var(--dark-card-bg);
+  border-color: var(--dark-card-border);
+  color: var(--dark-text);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark .project-card:hover,
+.dark .project-card:focus-within {
+  box-shadow: 0 22px 40px rgba(0, 0, 0, 0.6), 0 4px 8px rgba(0, 0, 0, 0.35);
+}
+
+.dark .polaroid-photo {
+  background: linear-gradient(145deg, #4a2a3d, #341b2b);
+  box-shadow: inset 0 0 0 1px rgba(255, 141, 206, 0.14), inset 0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+   ===================================================================== */
