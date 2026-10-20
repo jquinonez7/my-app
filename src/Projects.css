@@ -205,6 +205,45 @@
   background: var(--env-lining);
 }
 
+/* "open me" cue under the label */
+.envelope-hint {
+  display: block;
+  margin-top: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgb(203, 13, 105);
+  opacity: 0.85;
+  animation: hint-bob 2.4s ease-in-out infinite;
+  transition: opacity 0.2s ease;
+}
+
+.hint-tap {
+  display: none;
+}
+
+@media (hover: none) {
+  .hint-hover {
+    display: none;
+  }
+
+  .hint-tap {
+    display: inline;
+  }
+}
+
+.project-card.is-open .envelope-hint {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes hint-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
 /* gem sealing the flap */
 .envelope-seal {
   position: absolute;
@@ -217,12 +256,26 @@
   transform: translate(-50%, -55%) rotate(-8deg);
   filter: drop-shadow(0 3px 5px rgba(58, 18, 38, 0.3));
   transition: opacity 0.2s ease 0.1s, transform 0.4s ease;
+  animation: seal-wiggle 4.6s ease-in-out infinite;
 }
+
+.project-card:nth-of-type(2) .envelope-seal { animation-delay: 1.5s; }
+.project-card:nth-of-type(3) .envelope-seal { animation-delay: 3s; }
 
 .project-card.is-open .envelope-seal {
   opacity: 0;
   transform: translate(-50%, -55%) rotate(-8deg) scale(0.5);
   transition: opacity 0.2s ease, transform 0.3s ease;
+  animation: none;
+}
+
+/* a little shake every few seconds, like it's asking to be opened */
+@keyframes seal-wiggle {
+  0%, 68%, 100% { transform: translate(-50%, -55%) rotate(-8deg); }
+  72% { transform: translate(-50%, -55%) rotate(-18deg) scale(1.06); }
+  77% { transform: translate(-50%, -55%) rotate(2deg) scale(1.06); }
+  82% { transform: translate(-50%, -55%) rotate(-16deg) scale(1.04); }
+  88% { transform: translate(-50%, -55%) rotate(-3deg); }
 }
 
 .project-card .tape-accent {
@@ -270,6 +323,11 @@
   .project-card .tape-accent {
     transition: none !important;
   }
+
+  .envelope-seal,
+  .envelope-hint {
+    animation: none !important;
+  }
 }
 
 /* ---------- Dark Mode ---------- */
@@ -310,6 +368,10 @@
 .dark .tag:nth-of-type(5n+5) { background: rgba(143, 224, 176, 0.14); border-color: rgba(143, 224, 176, 0.4); color: var(--gem-green); }
 
 .dark .project-links a {
+  color: var(--dark-accent);
+}
+
+.dark .envelope-hint {
   color: var(--dark-accent);
 }
 

@@ -62,8 +62,14 @@ const About = () => {
           {/* Photobooth (right side on desktop, via CSS order) — the photo prints out of the slot */}
           <div className={`photobooth${printed ? " is-printed" : ""}`} ref={boothRef}>
             <div className="booth-face">
+              <i className="booth-screw booth-screw-tl" aria-hidden="true" />
+              <i className="booth-screw booth-screw-tr" aria-hidden="true" />
+              <i className="booth-screw booth-screw-bl" aria-hidden="true" />
+              <i className="booth-screw booth-screw-br" aria-hidden="true" />
               <div className="booth-plate">
-                <span>Photos delivered here</span>
+                <span>Photos</span>
+                <span>delivered here</span>
+                <span>in 4 minutes</span>
                 <i className="booth-arrow" aria-hidden="true" />
               </div>
               <div className="booth-led" aria-hidden="true" />

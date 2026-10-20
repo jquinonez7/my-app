@@ -247,13 +247,302 @@
 }
 
 
-/* ---------- Photobooth ---------- */
+/* ---------- Photobooth (realistic brushed-metal) ---------- */
 
 .photobooth {
   flex: 0 0 300px;
   width: 300px;
   max-width: 100%;
   order: 2; /* right side on desktop */
+
+  --metal-hi: #dcdee0;
+  --metal-1: #c4c7ca;
+  --metal-2: #a9acaf;
+  --metal-3: #8f9295;
+  --metal-edge: #6f7275;
+  --metal-ink: #26282a;
+}
+
+.dark .photobooth {
+  --metal-hi: #b4b7ba;
+  --metal-1: #9a9da0;
+  --metal-2: #818487;
+  --metal-3: #696c6f;
+  --metal-edge: #4b4e51;
+}
+
+.booth-face {
+  position: relative;
+  isolation: isolate;
+  min-height: 460px;
+  padding: 22px 20px 0;
+  border-radius: 18px;
+  background:
+    linear-gradient(105deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 28%, rgba(255, 255, 255, 0) 62%, rgba(255, 255, 255, 0.16) 80%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, var(--metal-1) 0%, var(--metal-2) 55%, var(--metal-3) 100%);
+  border: 1px solid var(--metal-edge);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    inset 1px 0 0 rgba(255, 255, 255, 0.3),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.28),
+    0 22px 34px rgba(60, 20, 45, 0.38),
+    0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* fine horizontal grain, like brushed steel */
+.booth-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  opacity: 0.55;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='480'%3E%3Cfilter id='b' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.85' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23b)'/%3E%3C/svg%3E");
+  background-size: 320px 480px;
+}
+
+.booth-screw {
+  position: absolute;
+  z-index: 2;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #f4f5f6 0%, #b5b8bb 45%, #6d7073 100%);
+  box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.5), inset 0 0 0 0.5px rgba(0, 0, 0, 0.35);
+}
+
+.booth-screw::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  top: 50%;
+  height: 1.5px;
+  margin-top: -0.75px;
+  border-radius: 1px;
+  background: #4a4d50;
+  box-shadow: 0 0.5px 0 rgba(255, 255, 255, 0.5);
+  transform: rotate(var(--sa, 35deg));
+}
+
+.booth-screw-tl { top: 10px; left: 10px; --sa: 35deg; }
+.booth-screw-tr { top: 10px; right: 10px; --sa: -20deg; }
+.booth-screw-bl { bottom: 10px; left: 10px; --sa: 70deg; }
+.booth-screw-br { bottom: 10px; right: 10px; --sa: 10deg; }
+
+/* engraved plate */
+.booth-plate {
+  position: relative;
+  z-index: 1;
+  width: 64%;
+  margin: 8px auto 0;
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  text-align: center;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--metal-hi), var(--metal-1));
+  border: 1px solid var(--metal-edge);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.45),
+    0 2px 3px rgba(0, 0, 0, 0.28);
+}
+
+.booth-plate span {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.66rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--metal-ink);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.booth-arrow {
+  display: block;
+  width: 24px;
+  height: 20px;
+  margin-top: 6px;
+  background: #222426;
+  clip-path: polygon(36% 0, 64% 0, 64% 45%, 100% 45%, 50% 100%, 0 45%, 36% 45%);
+}
+
+.booth-led {
+  position: absolute;
+  z-index: 2;
+  top: 44px;
+  right: 25px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #6b2a2a, #2a0c0c);
+  box-shadow: 0 0 0 2px #7d8083, 0 0 0 3px rgba(255, 255, 255, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+/* chunky frame around the slot */
+.booth-bezel {
+  position: relative;
+  z-index: 1;
+  margin-top: 26px;
+  padding: 12px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, var(--metal-hi), var(--metal-1) 55%, var(--metal-2));
+  border: 1px solid var(--metal-edge);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.2),
+    0 4px 6px rgba(0, 0, 0, 0.35),
+    0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.booth-slot {
+  height: 58px;
+  border-radius: 15px;
+  background:
+    repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 7px),
+    linear-gradient(180deg, #000 0%, #121314 60%, #1e2022 100%);
+  box-shadow:
+    inset 0 10px 12px rgba(0, 0, 0, 0.95),
+    inset 0 -2px 3px rgba(255, 255, 255, 0.1),
+    0 0 0 2px #6f7275,
+    0 1px 0 2px rgba(255, 255, 255, 0.55);
+}
+
+/* sits over the slot; only the top edge is clipped, so the print can hang down over the face */
+.booth-window {
+  position: absolute;
+  z-index: 2;
+  top: 12px;
+  left: 26px;
+  right: 26px;
+  height: 58px;
+  clip-path: inset(0 -30px -800px -30px);
+}
+
+/* inside the machine the paper is in shadow; it brightens as it passes the lower lip */
+.booth-window::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.5) 55%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.booth-photo {
+  position: relative;
+  margin: 0;
+  padding: 9px 9px 32px;
+  background: linear-gradient(100deg, #fbf9f4 0%, #f3efe7 55%, #ece7dd 100%);
+  border-radius: 2px;
+  box-shadow:
+    0 12px 18px rgba(0, 0, 0, 0.45),
+    0 2px 3px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.06);
+  transform: translateY(-104%) rotate(-0.6deg);
+  transform-origin: 50% 0;
+  will-change: transform;
+}
+
+/* a little gloss across the print */
+.booth-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(118deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 38%);
+}
+
+.booth-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 1px;
+  outline: 1px solid rgba(0, 0, 0, 0.14);
+  outline-offset: -1px;
+}
+
+/* prints in a few stop-and-go pulses, like a real printer feeding paper */
+.photobooth.is-printed .booth-photo {
+  animation: booth-print 3.4s cubic-bezier(0.3, 0.7, 0.3, 1) 0.35s both;
+}
+
+.photobooth.is-printed .booth-led {
+  animation: booth-led 3.4s ease 0.2s both;
+}
+
+@keyframes booth-print {
+  0%   { transform: translateY(-104%) rotate(-0.6deg); }
+  20%  { transform: translateY(-82%) rotate(-0.6deg); }
+  28%  { transform: translateY(-82%) rotate(-0.6deg); }
+  48%  { transform: translateY(-50%) rotate(-0.6deg); }
+  56%  { transform: translateY(-50%) rotate(-0.6deg); }
+  80%  { transform: translateY(-9%) rotate(-0.6deg); }
+  86%  { transform: translateY(-9%) rotate(-0.6deg); }
+  100% { transform: translateY(-5%) rotate(-0.6deg); }
+}
+
+@keyframes booth-led {
+  0%, 24%, 58%, 100% {
+    background: radial-gradient(circle at 35% 30%, #6b2a2a, #2a0c0c);
+    box-shadow: 0 0 0 2px #7d8083, 0 0 0 3px rgba(255, 255, 255, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+  }
+  6%, 18%, 30%, 50%, 64%, 90% {
+    background: radial-gradient(circle at 35% 30%, #ffb3a6, #ff2a1a);
+    box-shadow: 0 0 0 2px #7d8083, 0 0 0 3px rgba(255, 255, 255, 0.35), 0 0 9px 3px rgba(255, 60, 40, 0.8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photobooth .booth-photo {
+    animation: none !important;
+    transform: translateY(-5%) rotate(-0.6deg);
+  }
+
+  .photobooth .booth-led {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .photobooth {
+    margin: 0 auto;
+    order: 0; /* booth sits above the text on tablets and phones */
+  }
+}
+
+.dark .booth-face {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 1px 0 0 rgba(255, 255, 255, 0.15),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.4),
+    0 22px 34px rgba(0, 0, 0, 0.6),
+    0 3px 5px rgba(0, 0, 0, 0.4);
+}
+
+
+/* =====================================================================
+   OLD PINK BOOTH (disabled). To bring it back: delete the "Photobooth
+   (realistic brushed-metal)" block above and uncomment this one.
+   The About.jsx markup also gains the screws and a 3-line plate now; the old
+   look only needs the original single-line plate text.
+
+.photobooth {
+  flex: 0 0 300px;
+  width: 300px;
+  max-width: 100%;
+  order: 2; 
 }
 
 .booth-face {
@@ -332,7 +621,6 @@
   box-shadow: inset 0 6px 10px rgba(0, 0, 0, 0.6);
 }
 
-/* sits over the slot; clips the top edge only, so the print can hang down over the face */
 .booth-window {
   position: absolute;
   top: 10px;
@@ -359,10 +647,8 @@
   aspect-ratio: 3 / 4;
   object-fit: cover;
   border-radius: 1px;
-  filter: grayscale(1) contrast(1.08);
 }
 
-/* prints in a few stop-and-go pulses, like a real printer feeding paper */
 .photobooth.is-printed .booth-photo {
   animation: booth-print 3.4s cubic-bezier(0.3, 0.7, 0.3, 1) 0.35s both;
 }
@@ -409,11 +695,10 @@
 @media (max-width: 900px) {
   .photobooth {
     margin: 0 auto;
-    order: 0; /* booth sits above the text on tablets and phones */
+    order: 0; 
   }
 }
 
-/* dark mode */
 .dark .booth-face {
   background: linear-gradient(160deg, #3b2331, #26151f);
   border-color: #52324a;
@@ -451,3 +736,5 @@
   background: #7a5368;
   box-shadow: none;
 }
+
+   ===================================================================== */

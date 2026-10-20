@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Projects.css";
 
 const projects = [
@@ -62,9 +62,45 @@ const projects = [
 
 const Projects = () => {
   const [openId, setOpenId] = useState(null);
+  const firstCardRef = useRef(null);
+  const interactedRef = useRef(false);
 
-  const open = (id) => setOpenId(id);
+  const open = (id) => {
+    interactedRef.current = true;
+    setOpenId(id);
+  };
   const close = (id) => setOpenId((cur) => (cur === id ? null : cur));
+
+  // the first envelope peeks open once as it scrolls into view, to show that they open
+  useEffect(() => {
+    const el = firstCardRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const firstId = projects[0].id;
+    let startTimer;
+    let closeTimer;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        io.disconnect();
+        startTimer = setTimeout(() => {
+          if (interactedRef.current) return;
+          setOpenId(firstId);
+          closeTimer = setTimeout(() => {
+            if (!interactedRef.current) setOpenId((cur) => (cur === firstId ? null : cur));
+          }, 2400);
+        }, 500);
+      },
+      { threshold: 0.6 }
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      clearTimeout(startTimer);
+      clearTimeout(closeTimer);
+    };
+  }, []);
 
   return (
     <section id="projects">
@@ -96,9 +132,10 @@ const Projects = () => {
       <h1 className="projects-title">Projects</h1>
 
       <div className="projects-container">
-        {projects.map((p) => (
+        {projects.map((p, i) => (
           <div
             key={p.id}
+            ref={i === 0 ? firstCardRef : undefined}
             className={`project-card${openId === p.id ? " is-open" : ""}`}
             tabIndex={0}
             role="group"
@@ -107,6 +144,7 @@ const Projects = () => {
             onPointerLeave={(e) => e.pointerType === "mouse" && close(p.id)}
             onPointerUp={(e) => {
               if (e.pointerType === "mouse" || e.target.closest("a")) return;
+              interactedRef.current = true;
               setOpenId((cur) => (cur === p.id ? null : p.id));
             }}
             onFocus={() => open(p.id)}
@@ -148,6 +186,10 @@ const Projects = () => {
                   ))}
                 </div>
               </div>
+              <span className="envelope-hint" aria-hidden="true">
+                <span className="hint-hover">hover to open ♡</span>
+                <span className="hint-tap">tap to open ♡</span>
+              </span>
             </div>
 
             <div className="envelope-flap" />
