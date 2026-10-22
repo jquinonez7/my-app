@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 import "./Projects.css";
 
 const projects = [
@@ -61,47 +60,6 @@ const projects = [
 ];
 
 const Projects = () => {
-  const [openId, setOpenId] = useState(null);
-  const firstCardRef = useRef(null);
-  const interactedRef = useRef(false);
-
-  const open = (id) => {
-    interactedRef.current = true;
-    setOpenId(id);
-  };
-  const close = (id) => setOpenId((cur) => (cur === id ? null : cur));
-
-  // the first envelope peeks open once as it scrolls into view, to show that they open
-  useEffect(() => {
-    const el = firstCardRef.current;
-    if (!el || typeof IntersectionObserver === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const firstId = projects[0].id;
-    let startTimer;
-    let closeTimer;
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        io.disconnect();
-        startTimer = setTimeout(() => {
-          if (interactedRef.current) return;
-          setOpenId(firstId);
-          closeTimer = setTimeout(() => {
-            if (!interactedRef.current) setOpenId((cur) => (cur === firstId ? null : cur));
-          }, 2400);
-        }, 500);
-      },
-      { threshold: 0.6 }
-    );
-    io.observe(el);
-    return () => {
-      io.disconnect();
-      clearTimeout(startTimer);
-      clearTimeout(closeTimer);
-    };
-  }, []);
-
   return (
     <section id="projects">
       <img
@@ -129,35 +87,12 @@ const Projects = () => {
         style={{ width: "26px", bottom: "24px", right: "4%", transform: "rotate(-10deg)" }}
       />
 
-      <h1 className="projects-title">Projects</h1>
+      <h2 className="projects-title">Projects</h2>
 
       <div className="projects-container">
-        {projects.map((p, i) => (
-          <div
-            key={p.id}
-            ref={i === 0 ? firstCardRef : undefined}
-            className={`project-card${openId === p.id ? " is-open" : ""}`}
-            tabIndex={0}
-            role="group"
-            aria-label={`${p.title} project`}
-            onPointerEnter={(e) => e.pointerType === "mouse" && open(p.id)}
-            onPointerLeave={(e) => e.pointerType === "mouse" && close(p.id)}
-            onPointerUp={(e) => {
-              if (e.pointerType === "mouse" || e.target.closest("a")) return;
-              interactedRef.current = true;
-              setOpenId((cur) => (cur === p.id ? null : p.id));
-            }}
-            onFocus={() => open(p.id)}
-            onBlur={(e) => {
-              if (!e.currentTarget.contains(e.relatedTarget)) close(p.id);
-            }}
-          >
-            <img
-              src="/images/washi-tape.webp"
-              alt=""
-              className="tape-accent"
-              style={p.tape}
-            />
+        {projects.map((p) => (
+          <article key={p.id} className="project-card">
+            <img src="/images/washi-tape.webp" alt="" className="tape-accent" style={p.tape} />
             <img
               src={p.behind.src}
               alt=""
@@ -165,36 +100,22 @@ const Projects = () => {
               style={p.behind.style}
             />
 
-            <div className="envelope-letter">
-              <p className="project-desc">{p.desc}</p>
-              <div className="project-links">
-                {p.links.map((l) => (
-                  <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
-                    {l.label}
-                  </a>
-                ))}
-              </div>
+            <h3>{p.title}</h3>
+            <p className="project-subtitle">{p.subtitle}</p>
+            <div className="project-tags">
+              {p.tags.map((t) => (
+                <span key={t} className="tag">{t}</span>
+              ))}
             </div>
-
-            <div className="envelope-body">
-              <div className="envelope-label">
-                <h2>{p.title}</h2>
-                <p className="project-subtitle">{p.subtitle}</p>
-                <div className="project-tags">
-                  {p.tags.map((t) => (
-                    <span key={t} className="tag">{t}</span>
-                  ))}
-                </div>
-              </div>
-              <span className="envelope-hint" aria-hidden="true">
-                <span className="hint-hover">hover to open ♡</span>
-                <span className="hint-tap">tap to open ♡</span>
-              </span>
+            <p className="project-desc">{p.desc}</p>
+            <div className="project-links">
+              {p.links.map((l) => (
+                <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer">
+                  {l.label}
+                </a>
+              ))}
             </div>
-
-            <div className="envelope-flap" />
-            <img src={p.seal} alt="" className="envelope-seal" />
-          </div>
+          </article>
         ))}
       </div>
     </section>
@@ -205,10 +126,8 @@ export default Projects;
 /* =====================================================================
    POLAROID VERSION (disabled) — tilted polaroid with the screenshot on top.
    To bring it back:
-     1. delete the `useState` import and the useState/open/close lines at
-        the top of Projects()
-     2. swap the card markup inside projects.map(...) for the block below
-     3. in Projects.css, comment out the ENVELOPE block and uncomment the
+     1. swap the card markup inside projects.map(...) for the block below
+     2. in Projects.css, remove the PLAIN CARDS block and uncomment the
         POLAROID block at the bottom of that file.
 
           <div key={p.id} className="project-card" tabIndex={0}>

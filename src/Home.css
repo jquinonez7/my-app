@@ -26,6 +26,7 @@
 
 .nav-links {
   display: flex;
+  align-items: center;
   gap: 25px;
 }
 
@@ -39,6 +40,75 @@
 
 .nav-item:hover {
   color: #ec6c9f;
+}
+
+/* Contact stands out as the one button in the nav */
+.nav-item.nav-cta {
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: var(--berry);
+  color: #fff;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.nav-item.nav-cta:hover {
+  color: #fff;
+  background: #b53a75;
+  transform: translateY(-1px);
+}
+
+.nav-item {
+  white-space: nowrap;
+}
+
+@media (max-width: 520px) {
+  .navbar {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-item {
+    font-size: 13px;
+  }
+
+  .nav-item.nav-cta {
+    padding: 4px 10px;
+  }
+
+}
+
+@media (max-width: 720px) {
+  /* on phones the bottom gems sit in a row just under the social pills, not on top of them */
+  .hero-tech-gem-laptop {
+    top: auto !important;
+    left: 4% !important;
+    bottom: -84px !important;
+  }
+
+  .hero-low-pearl {
+    bottom: -52px !important;
+    left: 30% !important;
+  }
+
+  .hero-low-heart {
+    bottom: -66px !important;
+    right: 30% !important;
+  }
+
+  .hero-low-diamond {
+    bottom: -44px !important;
+    right: 46% !important;
+  }
+
+  .hero-tech-gem-gear {
+    top: auto !important;
+    right: 5% !important;
+    bottom: -80px !important;
+  }
 }
 
 /* Dark Mode Button */
@@ -89,9 +159,59 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgb(181, 58, 117);
-  opacity: 0.85;
+  color: var(--berry);
   margin-top: 6px;
+}
+
+/* keep the readable text and the links above the decorative stickers */
+.hero-description,
+.hero-subline,
+.hero-socials {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-subline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--berry);
+  margin: 8px 0 0;
+}
+
+.hero-socials {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.hero-socials a {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--berry);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(122, 31, 74, 0.4);
+  backdrop-filter: blur(4px);
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-socials a:hover,
+.hero-socials a:focus-visible {
+  transform: translateY(-2px);
+  background: var(--berry);
+  color: #fff;
 }
 
 /* Buttons */
@@ -186,6 +306,16 @@
   color: var(--text-color);
 }
 
+.dark .nav-item.nav-cta {
+  background: var(--dark-accent);
+  color: #1f0a16;
+}
+
+.dark .nav-item.nav-cta:hover {
+  background: #fff;
+  color: #1f0a16;
+}
+
 .dark .dark-mode-btn {
   color: #ddd;
 }
@@ -193,6 +323,22 @@
 .dark .hero-title,
 .dark .hero-description {
   color: var(--text-color);
+}
+
+.dark .hero-subline {
+  color: var(--text-color);
+}
+
+.dark .hero-socials a {
+  color: var(--dark-accent);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 141, 206, 0.4);
+}
+
+.dark .hero-socials a:hover,
+.dark .hero-socials a:focus-visible {
+  background: var(--dark-accent);
+  color: #1f0a16;
 }
 
 .dark .home-container {

@@ -1,71 +1,60 @@
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { EMAIL, GITHUB_URL, LINKEDIN_URL } from "./links";
 import "./Contact.css";
 
-export default function Contact() {
+const Contact = () => {
   return (
     <section id="contact">
-      <div className="contact-wrapper">
-        <div aria-hidden="true" className="contact-background">
-          <div className="contact-gradient" />
-        </div>
+      <img
+        src="/images/gems/gem-heart-pink.png"
+        alt=""
+        className="gem-accent"
+        style={{ width: "34px", top: "26px", left: "6%", transform: "rotate(-10deg)" }}
+      />
+      <img
+        src="/images/gems/gem-bow-pink.png"
+        alt=""
+        className="gem-accent"
+        style={{ width: "40px", top: "40px", right: "7%", transform: "rotate(12deg)" }}
+      />
+      <img
+        src="/images/gems/gem-cherry.png"
+        alt=""
+        className="gem-accent"
+        style={{ width: "30px", bottom: "30px", left: "8%", transform: "rotate(-8deg)" }}
+      />
+      <img
+        src="/images/gems/gem-flower-diamond.png"
+        alt=""
+        className="gem-accent"
+        style={{ width: "38px", bottom: "36px", right: "6%", transform: "rotate(8deg)" }}
+      />
 
-        <div className="contact-header">
-          <h2>Contact Me</h2>
-          <p>Let's connect!</p>
-        </div>
+      <h2 className="contact-title">Contact</h2>
+      <p className="contact-lead">Questions, ideas, or opportunities? I'd love to hear from you ♡</p>
 
-        <form action="#" method="POST" className="contact-form">
-          <div className="form-grid">
-            {/* First Name */}
-            <div>
-              <label htmlFor="first-name">First name</label>
-              <input
-                id="first-name"
-                name="first-name"
-                type="text"
-                autoComplete="given-name"
-              />
-            </div>
-
-            {/* Last Name */}
-            <div>
-              <label htmlFor="last-name">Last name</label>
-              <input
-                id="last-name"
-                name="last-name"
-                type="text"
-                autoComplete="family-name"
-              />
-            </div>
-
-            {/* Email */}
-            <div className="span-2">
-              <label htmlFor="email">Email</label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-              />
-            </div>
-
-            {/* Message */}
-            <div className="span-2">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-              />
-            </div>
-          </div>
-
-          {/* Submit */}
-          <div className="submit">
-            <button type="submit">Let's talk!</button>
-          </div>
-        </form>
-      </div>
+      <ul className="contact-links">
+        <li>
+          <a href={`mailto:${EMAIL}`}>
+            <Mail size={18} aria-hidden="true" />
+            <span className="contact-email">{EMAIL}</span>
+          </a>
+        </li>
+        <li>
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+            <Linkedin size={18} aria-hidden="true" />
+            <span>LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+            <Github size={18} aria-hidden="true" />
+            <span>GitHub</span>
+          </a>
+        </li>
+      </ul>
     </section>
   );
-}
+};
+
+export default Contact;

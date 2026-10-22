@@ -36,13 +36,13 @@ const Education = () => {
         style={{ width: "28px", bottom: "20px", right: "4%", transform: "rotate(-8deg)" }}
       />
 
-      <h1 className="education-title">Education</h1>
+      <h2 className="education-title">Education</h2>
 
-      {/* Trinket tin — one ID card in the lid, one in the tray */}
+      {/* Trinket tin — the ID card sits in the lid, trinkets in the tray */}
       <div className="tin">
         <img className="tin-base" src="/images/education/tin.webp" alt="" />
 
-        {/* trinkets tucked behind the cards */}
+        {/* trinkets tucked behind the card */}
         <img
           src="/images/gems/gem-heart-ruby.png"
           alt=""
@@ -68,19 +68,8 @@ const Education = () => {
           />
         </figure>
 
-        <figure
-          className={`tin-card tin-card-tray${activeId === "occ" ? " is-active" : ""}`}
-          tabIndex={0}
-          onPointerUp={toggleOnTouch("occ")}
-        >
-          <img
-            src="/images/education/card-orange.webp"
-            alt="Orange and blue ID card: Jade Quinonez, California State University, Long Beach, B.S. Computer Science, Aug 2025 to May 2027. Relevant coursework: Algorithms, System Programming, Computer Architecture, Programming Languages, Software Engineering, Computer Security, Discrete Structures, Digital Logic."
-            draggable="false"
-          />
-        </figure>
 
-        {/* trinkets lying on top of the cards' edges */}
+        {/* trinkets lying around the tin */}
         <img
           src="/images/gems/gem-bow-pink.png"
           alt=""
@@ -112,12 +101,20 @@ const Education = () => {
           style={{ left: "90%", top: "63%", width: "5.5%", transform: "translate(-50%,-50%) rotate(-10deg)" }}
         />
 
-        {/* keychain lying across the tray */}
+        {/* keychain lying in the tray */}
         <img
           src="/images/education/keychain.webp"
           alt=""
           className="tin-trinket tin-keychain"
-          style={{ left: "87%", top: "85%", width: "19%", transform: "translate(-50%,-50%) rotate(32deg)" }}
+          style={{ left: "52%", top: "76%", width: "27%", transform: "translate(-50%,-50%) rotate(68deg)" }}
+        />
+
+        {/* gummy bear */}
+        <img
+          src="/images/education/gummy-bear.webp"
+          alt=""
+          className="tin-trinket"
+          style={{ left: "80%", top: "78%", width: "14%", transform: "translate(-50%,-50%) rotate(-16deg)" }}
         />
 
         {/* washi tape holding the tin's corners down */}
@@ -136,8 +133,8 @@ const Education = () => {
       </div>
 
       <p className="tin-hint" aria-hidden="true">
-        <span className="hint-hover">hover a card to zoom ♡</span>
-        <span className="hint-tap">tap a card to zoom ♡</span>
+        <span className="hint-hover">hover the card to zoom ♡</span>
+        <span className="hint-tap">tap the card to zoom ♡</span>
       </p>
     </section>
   );

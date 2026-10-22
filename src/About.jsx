@@ -1,12 +1,16 @@
 import "./About.css";
 import { useEffect, useRef, useState } from "react";
-import Modal from "@mui/joy/Modal";
-import ModalDialog from "@mui/joy/ModalDialog";
-import ModalClose from "@mui/joy/ModalClose";
-import Typography from "@mui/joy/Typography";
+
+const skillGroups = [
+  { label: "Languages", items: ["Python", "Java", "JavaScript", "C++", "HTML", "CSS"] },
+  {
+    label: "Frameworks & Tools",
+    items: ["React", "Vue.js", "Tailwind CSS", "Vite", "FastAPI", "SQLModel", "Supabase", "Git", "GitHub", "Vercel", "REST APIs", "JWT Auth", "Linux"],
+  },
+  { label: "Spoken", items: ["Spanish"] },
+];
 
 const About = () => {
-  const [open, setOpen] = useState(false);
   const [printed, setPrinted] = useState(false);
   const boothRef = useRef(null);
 
@@ -31,7 +35,6 @@ const About = () => {
   }, []);
 
   return (
-    <>
       <section id="about" className="about-container">
         <img
           src="/images/gems/gem-flower-diamond.png"
@@ -90,23 +93,39 @@ const About = () => {
 
           {/* Left Side */}
           <div className="about-text-container">
-            <h1 className="about-title">About Me</h1>
+            <h2 className="about-title">About Me</h2>
 
             <p className="about-text">
-              Hi! I’m Jade Quinonez :) I’m a Computer Science student at CSULB with a
-              concentration in Software Development. I have experience working with
-              Python, Java, HTML, CSS, JavaScript, and C++. I’ve used tools and
-              frameworks such as React, Vue.js, Tailwind CSS, Git, GitHub, and Linux.
-
-              Beyond coding, I enjoy spending time with my dog{" "}
-              <span
-                className="butters-link"
-                onClick={() => setOpen(true)}
-              >
-                Butters
-              </span>
-              , she’s a 4-year-old Aussie. I also love fashion, cars, and traveling.
+              Hi, I’m Jade Quinonez. I grew up knowing I wanted to do something creative,
+              and software engineering gives me that same creativity with more structure
+              and real-world impact.
             </p>
+
+            <p className="about-text">
+              I enjoy the constant stimulation of finding new solutions. At the Snap
+              Engineering Academy I built an F1 trivia game with live race data and a
+              mental-health journal for Snapchat, and I’ve also built a FastAPI backend
+              with JWT auth. I’ve collaborated with others and taken on leadership roles
+              when needed.
+            </p>
+
+            <p className="about-text">
+              I’m currently looking for a software engineering internship where I can
+              contribute to a team and keep growing as a developer.
+            </p>
+
+            <div className="about-skills">
+              {skillGroups.map((g) => (
+                <div key={g.label} className="skill-group">
+                  <h3 className="skill-label">{g.label}</h3>
+                  <ul className="skill-list">
+                    {g.items.map((item) => (
+                      <li key={item} className="skill-chip">{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* ASCII Art (disabled — replaced by the photobooth above)
@@ -129,46 +148,6 @@ const About = () => {
 
         </div>
       </section>
-
-      {/* Modal */}
-      <Modal open={open} onClose={() => setOpen(false)}>
-        <ModalDialog
-          layout="center"
-          size="md"
-          variant="soft"
-          className="butters-modal"
-        >
-          <ModalClose
-            sx={{
-              color: "rgb(203, 13, 105)",
-              backgroundColor: "transparent",
-              "&:hover": {
-                backgroundColor: "#ffe2f1",
-                color: "rgb(203, 13, 105)"
-              },
-              "&:active": {
-                backgroundColor: "#ffe2f1",
-                color: "rgb(203, 13, 105)"
-              }
-            }}
-          />
-
-<Typography
-  level="h4"
-  sx={{ color: "rgb(203, 13, 105)" }}
->
-  Jade & Butters
-</Typography>
-
-          <img
-            src="/images/IMG_3701.jpg"
-            alt="Jade and Butters"
-            className="butters-image"
-          />
-
-        </ModalDialog>
-      </Modal>
-    </>
   );
 };
 

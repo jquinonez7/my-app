@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;0,9..40,800;1,9..40,300&display=swap');
 
 :root {
+  /* deep berry for body-size text on the pink backgrounds (7.5:1 on the darkest pink, WCAG AA/AAA) */
+  --berry: #7a1f4a;
+
   font-family: 'DM Sans', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -76,4 +79,17 @@ textarea {
   user-select: none;
   z-index: 3;
   filter: drop-shadow(0 2px 3px rgba(58, 18, 38, 0.22));
+}
+
+/* text for screen readers and search engines, hidden visually */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
