@@ -7,7 +7,7 @@ const skillGroups = [
     label: "Frameworks & Tools",
     items: ["React", "Vue.js", "Tailwind CSS", "Vite", "FastAPI", "SQLModel", "Supabase", "Git", "GitHub", "Vercel", "REST APIs", "JWT Auth", "Linux"],
   },
-  { label: "Spoken", items: ["Spanish"] },
+  { label: "Spoken", items: ["English", "Spanish"] },
 ];
 
 const About = () => {
